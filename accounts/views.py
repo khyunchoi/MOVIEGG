@@ -4,7 +4,7 @@ from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_POST
 from django.contrib.auth.decorators import login_required
-from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomPasswordChangeForm
+from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomPasswordChangeForm, CustomAuthenticationForm
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -12,14 +12,14 @@ from django.contrib.auth.forms import AuthenticationForm
 @require_http_methods(['GET', 'POST'])
 def signup(request):
     if request.user.is_authenticated:
-        return redirect('accounts:practice')
+        return redirect('articles:index')
 
     if request.method == 'POST':
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
             auth_login(request, user)
-            return redirect('accounts:practice')
+            return redirect('articles:index')
     else:
         form = CustomUserCreationForm()
     context = {
@@ -31,15 +31,15 @@ def signup(request):
 @require_http_methods(['GET', 'POST'])
 def login(request):
     if request.user.is_authenticated:
-        return redirect('accounts:practice')
+        return redirect('articles:index')
 
     if request.method == 'POST':
-        form = AuthenticationForm(request, request.POST)
+        form = CustomAuthenticationForm(request, request.POST)
         if form.is_valid():
             auth_login(request, form.get_user())
-            return redirect(request.GET.get('next') or 'accounts:practice')
+            return redirect(request.GET.get('next') or 'articles:index')
     else:
-        form = AuthenticationForm()
+        form = CustomAuthenticationForm()
     context = {
         'form': form,
     }
@@ -49,7 +49,7 @@ def login(request):
 # @require_POST
 def logout(request):
     auth_logout(request)
-    return redirect('accounts:practice')
+    return redirect('articles:index')
 
 
 @login_required
@@ -58,7 +58,7 @@ def update(request):
         form = CustomUserChangeForm(request.POST, request.FILES, instance=request.user)
         if form.is_valid():
             form.save()
-            return redirect('accounts:practice')
+            return redirect('articles:index')
     else:
         form = CustomUserChangeForm(instance=request.user)
     context = {
@@ -75,7 +75,7 @@ def password_change(request):
         if form.is_valid():
             form.save()
             update_session_auth_hash(request, form.user)
-            return redirect('accounts:practice')
+            return redirect('articles:index')
     else:
         form = CustomPasswordChangeForm(request.user)
     context = {

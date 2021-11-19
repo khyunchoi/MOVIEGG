@@ -1,12 +1,13 @@
-from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm, PasswordChangeForm, AuthenticationForm
 from django.contrib.auth import get_user_model
+from .models import User
 
 
-class CustomUserCreationForm(UserCreationForm):
+# class CustomUserCreationForm(UserCreationForm):
 
-    class Meta(UserCreationForm.Meta):
-        model = get_user_model()
-        fields = UserCreationForm.Meta.fields + ('last_name', 'first_name', 'nickname',)
+#     class Meta(UserCreationForm.Meta):
+#         model = get_user_model()
+#         fields = UserCreationForm.Meta.fields + ('last_name', 'first_name', 'nickname',)
 
 
 class CustomUserChangeForm(UserChangeForm):
@@ -31,5 +32,71 @@ class CustomPasswordChangeForm(PasswordChangeForm):
         })
         self.fields['new_password2'].label = '새 비밀번호 확인'
         self.fields['new_password2'].widget.attrs.update({
+            'class': 'form-control',
+        })
+
+
+# class CustomUserCreationForm(UserCreationForm):
+#     def __init__(self, *args, **kwargs):
+#         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+
+#         self.fields['username'].label = '아이디'
+#         self.fields['username'].widget.attrs.update({     
+#             'class': 'form-control',
+#             'autofocus': False
+#         })
+#         self.fields['password1'].label = '비밀번호'
+#         self.fields['password1'].widget.attrs.update({
+#             'class': 'form-control',
+#         })
+#         self.fields['password2'].label = '비밀번호 확인'
+#         self.fields['password2'].widget.attrs.update({
+#             'class': 'form-control',
+#         })
+
+class CustomUserCreationForm(UserCreationForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomUserCreationForm, self).__init__(*args, **kwargs)
+
+        for fieldname in ['username', 'password1', 'password2']:
+            self.fields[fieldname].help_text = None
+
+        self.fields['username'].label = '아이디'
+        self.fields['username'].widget.attrs.update({     
+            'class': 'form-control',
+            'autofocus': False
+        })
+        self.fields['nickname'].label = '닉네임'
+        self.fields['nickname'].widget.attrs.update({
+            'class': 'form-control',
+        })
+        self.fields['first_name'].label = '이름'
+        self.fields['first_name'].widget.attrs.update({
+            'class': 'form-control',
+        })
+        self.fields['password1'].label = '비밀번호'
+        self.fields['password1'].widget.attrs.update({
+            'class': 'form-control',
+        })
+        self.fields['password2'].label = '비밀번호 확인'
+        self.fields['password2'].widget.attrs.update({
+            'class': 'form-control',
+        })
+
+    class Meta:
+        model = User
+        fields = ['username', 'nickname', 'first_name', 'password1', 'password2']
+
+
+class CustomAuthenticationForm(AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomAuthenticationForm, self).__init__(*args, **kwargs)
+        self.fields['username'].label = '아이디'
+        self.fields['username'].widget.attrs.update({
+            'class': 'form-control',
+            'autofocus': False,
+        })
+        self.fields['password'].label = '비밀번호'
+        self.fields['password'].widget.attrs.update({
             'class': 'form-control',
         })
