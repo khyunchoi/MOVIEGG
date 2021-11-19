@@ -102,10 +102,10 @@ def movieupdate(request):
 
             for i in range(2):
                 if len(cast):
-                    # context = {
-                    #     'movie_code' : movie_id,
-                    #     'name' : cast[i]['name'] 
-                    # }
+                    context = {
+                        'movie_code' : movie_id,
+                        'name' : cast[i]['name'] 
+                    }
                     actor = Actor.objects.get_or_create(name=cast[i]['name'])
                     actor = Actor.objects.get(name=cast[i]['name'])
                     movie = Movie.objects.get(movie_code=rec['id'])
