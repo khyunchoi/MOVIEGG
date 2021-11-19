@@ -15,7 +15,7 @@ class Movie(models.Model):
     plot = models.TextField(default='')
     showtime = models.IntegerField(null=True)
     poster_path = models.TextField(default='', null=True)
-    genre = models.ManyToManyField(Genre, related_name='movie_genre',null=True)
+    genre = models.ManyToManyField(Genre, related_name='movie_genre')
 
 class Actor(models.Model):
     movie_code = models.ManyToManyField(Movie, related_name='movie_actor')
