@@ -13,7 +13,7 @@
 {% endblock style %}
 
 {% block content %}
-{% for review in reviews %}
+{% for review in page_obj %}
   <div class="articles-review">
     {{ review.title }}
     {{ review.created_at }}
@@ -21,4 +21,18 @@
     평점 : {{ review.grade }}
   </div>
 {% endfor %}
+
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+    {% endif %}
+    {% for num in page_obj.paginator.page_range %}
+      <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+    {% endif %}
+  </ul>
+</nav>
 {% endblock content %}

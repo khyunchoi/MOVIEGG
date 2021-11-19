@@ -2,34 +2,36 @@
 
 {% block content %}
 <div style="display: none;">
-  {{ review.update_counter }}
+  {{ freeboard.update_counter }}
 </div>
 <div>
   <div>
-    닉네임: {{ review.user.nickname }}
+    닉네임: {{ freeboard.user.nickname }}
   </div>
   <div>
-    작성일: {{ review.created_at }}
+    작성일: {{ freeboard.created_at }}
   </div>
   <div>
-    조회수: {{ review.hit }}
+    조회수: {{ freeboard.hit }}
   </div>
 </div>
 <div>
-  {{ review.title }}
+  {{ freeboard.title }}
 </div>
 <div>
-  {{ review.content }}
+  {{ freeboard.content }}
 </div>
 <div>
-  {{ review.grade }}
+  {% if freeboard.image %}
+    <img src="{{ freeboard.image.url }}" alt="이미지">
+  {% endif %}
 </div>
 <div>
-  {{ review.like_users.count }}
+  {{ freeboard.like_users.count }}
 </div>
 
 {% if request.user.is_authenticated %}
-  <form action="{% url 'articles:review_comment_create' review.pk %}" method="POST">
+  <form action="{% url 'articles:free_comment_create' freeboard.pk %}" method="POST">
     {% csrf_token %}
     {{ comment_form }}
     <input type="submit">
