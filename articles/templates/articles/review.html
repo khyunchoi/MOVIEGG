@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+  .articles-review {
+    box-sizing: border-box;
+    width: 300px;
+    heigth: 300px;
+    border: solid black 1px;
+    padding: 50px;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+{% for review in reviews %}
+  <div class="articles-review">
+    {{ review.title }}
+    {{ review.created_at }}
+    {{ review.like_users.count }}
+    평점 : {{ review.grade }}
+  </div>
+{% endfor %}
+{% endblock content %}

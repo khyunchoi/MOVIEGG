@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block style %}
+<style>
+  .index-recommend {
+    box-sizing: border-box;
+    width: 300px;
+    heigth: 300px;
+    border: solid black 1px;
+    padding: 50px;
+  }
+  .index-review {
+    box-sizing: border-box;
+    width: 300px;
+    heigth: 300px;
+    border: solid black 1px;
+    padding: 50px;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div>
+  <img src="{% static 'moviegg.png' %}" alt="로고">
+</div>
+<div>
+  <form action="">
+    <input type="text">
+    <button>.GG</button>
+  </form>
+</div>
+<div class="index-recommend">
+  <div>
+    MOVIE.GG 추천영화
+  </div>
+  <hr>
+</div>
+<div class="index-review">
+  <div>
+    Best Review
+  </div>
+  <hr>
+</div>
+{% endblock content %}
