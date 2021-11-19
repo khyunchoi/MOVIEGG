@@ -1,0 +1,399 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/cinER0ESG0eJ49kXlExM0MEWGxW.jpg",
+            "genre_ids": [
+                28,
+                12,
+                14
+            ],
+            "id": 566525,
+            "original_language": "en",
+            "original_title": "Shang-Chi and the Legend of the Ten Rings",
+            "overview": "초인적인 능력을 가진 텐 링즈의 힘으로 수세기 동안 어둠의 세상을 지배해 온 웬우. 샹치는 아버지 웬우 밑에서 암살자로 훈련을 받았지만 이를 거부하고 평범함 삶을 선택한다. 샌프란시스코로 떠나와 자신의 진짜 이름을 숨긴 채 션이란 가명으로 살아가는 샹치. 웬우가 수장으로 있는 조직 텐 링즈의 일원인 레이저 피스트가 찾아와 샹치의 펜던트를 훔쳐가자 샹치는 친구 케이티(아콰피나)와 함께 연이 끊겼던 동생 샤링(장멍)을 염려하며 그녀가 숨어 지내는 마카오로 찾아간다. 텐 링즈의 마법 같은 힘을 통해 수천년 동안 지구의 역사를 혼란에 빠뜨렸던 웬우는 자신의 아들딸을 다시 불러들여 새로운 계략을 꾸민다.",
+            "popularity": 9589.905,
+            "poster_path": "/14L4NGrqO4r7gJtVRiSRP5rNsL5.jpg",
+            "release_date": "2021-09-01",
+            "title": "샹치와 텐 링즈의 전설",
+            "video": false,
+            "vote_average": 7.9,
+            "vote_count": 3003
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1953j0QEbtN17WFFTnJHIm6bn6I.jpg",
+            "genre_ids": [
+                12,
+                28,
+                53
+            ],
+            "id": 370172,
+            "original_language": "en",
+            "original_title": "No Time to Die",
+            "overview": "MI6를 떠난 이후 매들린(레아 세두)과 이탈리아의 오랜 도시 마테라에서 평화로운 일상을 즐기던 제임스 본드(대니엘 크레이그).  어느 날 CIA 요원 펠릭스(제프리 라이트)가 찾아와 선별적 DNA 공격이 가능한 새로운 형태의 생화학 무기 유출을 알린다. 위험에 처한 전 세계를 구하기 위해 복귀하게 된 제임스 본드는 임무를 수행하는 과정에서 새로운 MI6 요원 노미(라샤나 린치)를 만나고, 모든 사건의 배후에 운명으로 얽혀 있는 최악의 적 사핀(라미 말렉)이 존재한다는 것을 알아낸다. 위험천만한 위기 속, 감춰져 있던 비밀이 밝혀지면서 작전은 점점 더 예측할 수 없는 상황으로 치닫게 되는데...",
+            "popularity": 4689.436,
+            "poster_path": "/68ZwnPALUeweaFdT1z75oXJ4Xie.jpg",
+            "release_date": "2021-09-29",
+            "title": "007 노 타임 투 다이",
+            "video": false,
+            "vote_average": 7.6,
+            "vote_count": 1839
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/70nxSw3mFBsGmtkvcs91PbjerwD.jpg",
+            "genre_ids": [
+                878,
+                28,
+                12
+            ],
+            "id": 580489,
+            "original_language": "en",
+            "original_title": "Venom: Let There Be Carnage",
+            "overview": "연쇄살인마 클리터스 캐서디(우디 해럴슨)가 사형선고를 받는다. 죽을 생각이 전혀 없는 클리터스는 자신의 집행일을 연기할 목적으로 마지막 증언을 남기겠다며 탐사보도로 유명한 프리랜스 저널리스트 에디를 지목한다. 베놈을 얻는 대신 직장과 연인을 모두 잃고 폐인처럼 생활하던 에디는 클리터스와의 단독 인터뷰를 통해 다시 한번 저널리스트로서 재기할 수 있는 기회를 얻는다. 클리터스가 던져주는 수많은 단서로 인해 미결로 남아 있던 살인사건을 추가로 밝히는 데 성공한 에디는 제일 먼저 앤에게 달려가지만 전편에서 에디의 몸에 베놈이 산다는 것을 알게 된 그녀는 새로운 연인 댄 박사(레이드 스콧)와 결혼을 선언한다. 평정심을 잃은 에디는 클리터스와의 인터뷰 중 실수로 클리터스가 새로운 빌런 카니지로 거듭나는 빌미를 제공하고 마는데...",
+            "popularity": 4512.912,
+            "poster_path": "/1Lh9LER4xRQ3INFFi2dfS2hpRwv.jpg",
+            "release_date": "2021-09-30",
+            "title": "베놈 2: 렛 데어 비 카니지",
+            "video": false,
+            "vote_average": 6.8,
+            "vote_count": 1968
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/oE6bhqqVFyIECtBzqIuvh6JdaB5.jpg",
+            "genre_ids": [
+                878,
+                18,
+                12
+            ],
+            "id": 522402,
+            "original_language": "en",
+            "original_title": "Finch",
+            "overview": "감마 플레어가 오존층을 파괴하고 전자기 펄스가 모든 전기를 흡수하면서 지상은 황폐화되고 대부분의 인류는 사망한 가까운 미래. 살아남은 소수의 인류는 자외선과 고온을 피해 밤에 활동하고, 먹을 것과 생필품을 구하기 위해 잔인한 본성을 드러낸다. 살아남은 TAE 테크놀로지의 과학자 핀치 와인버그(톰 행크스)는 사랑하는 개 굿이어와 함께 미주리의 폐허 속에서 먹을 것과 생필품을 찾는다. 병들어 죽음을 앞두고 있는 핀치는 굿이어를 돌봐줄 수 있는 인공지능 로봇을 만들고 데이터를 업로드한다. 얼마 후 40일간 지속되는 거대한 폭풍이 핀치의 은신처로 다가오자, 핀치는 안드로이드와 굿이어, 그리고 운반 로봇 듀이와 함께 트럭을 타고 급히 서쪽 샌프란시스코로 향하는데...",
+            "popularity": 3377.933,
+            "poster_path": "/jKuDyqx7jrjiR9cDzB5pxzhJAdv.jpg",
+            "release_date": "2021-11-04",
+            "title": "핀치",
+            "video": false,
+            "vote_average": 8.2,
+            "vote_count": 962
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/zBkHCpLmHjW2uVURs5uZkaVmgKR.jpg",
+            "genre_ids": [
+                16,
+                35,
+                10751
+            ],
+            "id": 585245,
+            "original_language": "en",
+            "original_title": "Clifford the Big Red Dog",
+            "overview": "뉴욕의 아파트로 이사 온 12살 소녀 에밀리. 새로운 학교에 고군분투하는 에밀리를 바쁜 엄마는 출장을 가면서 철없는 삼촌 케이시에게 맡기고 떠난다.  마법 동물 구조 센터를 지나던 에밀리는 운명처럼 작고 빨간 강아지를 만나게 되고, 우여곡절 끝에 함께하게 된다. 하지만 기쁨도 잠시, 작고 빨간 강아지 클리포드는 하루 아침에 3M가 넘게 커져버려 순식간에 뉴욕의 유명인사가 되어버린다. 엄마가 오기 전 클리포드를 되돌리려는 에밀리와 클리포드를 유전학 사업에 이용하려는 기업까지 뒤쫓으며 클리포드는 위험에 빠지고 마는데..!",
+            "popularity": 2659.339,
+            "poster_path": "/mJwwkMKeR5XgHwexw9SJa6CiZY2.jpg",
+            "release_date": "2021-11-10",
+            "title": "클리포드 더 빅 레드 독",
+            "video": false,
+            "vote_average": 8,
+            "vote_count": 133
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4gKxQIW91hOTELjY5lzjMbLoGxB.jpg",
+            "genre_ids": [
+                28,
+                53,
+                878
+            ],
+            "id": 763164,
+            "original_language": "en",
+            "original_title": "Apex",
+            "overview": "현실과 가상이 뒤섞인 '에이펙스' 섬에 모여 인간 사냥을 게임을 즐기는 사냥꾼들에 맞서 사냥감이 된 남자가 펼치는 생존 전략을 그린 영화",
+            "popularity": 2624.563,
+            "poster_path": "/chTkFGToW5bsyw3hgLAe4S5Gt3.jpg",
+            "release_date": "2021-11-12",
+            "title": "에이펙스",
+            "video": false,
+            "vote_average": 5.6,
+            "vote_count": 151
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4EJSMQOM1bZPHvzqAQe87suBxdf.jpg",
+            "genre_ids": [
+                10752,
+                36,
+                18,
+                12
+            ],
+            "id": 885110,
+            "original_language": "en",
+            "original_title": "Amina",
+            "overview": "지금은 나이지리아의 자리아라 불리는 곳. 16세기 자자우에서 공주 아미나가 왕국을 지키기 위한 필사의 싸움을 시작한다. 뛰어난 기술과 전략으로 무장한 전사, 실화 바탕 이야기로 찾아온다.",
+            "popularity": 2566.495,
+            "poster_path": "/gII53HAH7UA1yx189vROMzWA5ib.jpg",
+            "release_date": "2021-11-04",
+            "title": "아미나: 전사의 이름",
+            "video": false,
+            "vote_average": 6.5,
+            "vote_count": 12
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/dK12GIdhGP6NPGFssK2Fh265jyr.jpg",
+            "genre_ids": [
+                28,
+                35,
+                80,
+                53
+            ],
+            "id": 512195,
+            "original_language": "en",
+            "original_title": "Red Notice",
+            "overview": "인터폴이 중범죄 피의자를 대상으로 내리는 전 세계적 경보인 레드 노티스. 세계 곳곳에서 지명 수배범을 추적하고 체포하는 것이 그 목적이다. 어느 날 초유의 도난 사건이 발생하고, 그로 인해 FBI 최고의 프로파일러(드웨인 존슨)가 라이벌 관계의 두 범죄자(갤 가돗, 라이언 레이놀즈)와 만나면서 모든 게 엇나가기 시작한다. 늘 한발 앞서 도망치는 사기꾼을 잡기 위해 그들은 어쩔 수 없이 싫어도 이를 악물고 힘을 합쳐야 한다. 이제 무슨 일이 일어날지 그 누구도 장담할 수 없다.",
+            "popularity": 2786.704,
+            "poster_path": "/gG06Uu6UQseYaPx1RU2PQjFEUKK.jpg",
+            "release_date": "2021-11-04",
+            "title": "레드 노티스",
+            "video": false,
+            "vote_average": 6.9,
+            "vote_count": 896
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/lyvszvJJqqI8aqBJ70XzdCNoK0y.jpg",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "id": 524434,
+            "original_language": "en",
+            "original_title": "Eternals",
+            "overview": "수 천년에 걸쳐 그 모습을 드러내지 않고 살아온 불멸의 히어로들이 \"어벤져스: 엔드게임\" 이후 인류의 가장 오래된 적 '데비안츠'에 맞서기 위해 다시 힘을 합치면서 벌어지는 이야기",
+            "popularity": 1946.029,
+            "poster_path": "/aNtAP8ZzUMdnCPoqYgVOcgI0Eh4.jpg",
+            "release_date": "2021-11-03",
+            "title": "이터널스",
+            "video": false,
+            "vote_average": 7.1,
+            "vote_count": 1016
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4vCh8R4yd6ybOmbxRAPOzaXmLTV.jpg",
+            "genre_ids": [
+                10749,
+                18
+            ],
+            "id": 744275,
+            "original_language": "en",
+            "original_title": "After We Fell",
+            "overview": "영국 런던에서 미국 시애틀까지, 핫스팟에서 시작된 사랑의 클라이맥스! 첫사랑, 첫키스, 첫경험, 설렘 가득했던 처음을 뒤로 하고 꿈을 위해 잠시 서로를 떠나게 된 하딘과 테사. 각자 영국 런던과 미국 시애틀에서 롱디 연애를 앞둔 두 사람은 시간과 장소를 가리지 않고 달콤한 사랑을 속삭인다. 하지만 연애와 꿈의 갈림길에 선 둘은 서로에게 감춘 '누군가'의 존재와 예상치 못한 비밀까지 알게 되면서 사랑의 클라이맥스에 치닫게 되는데…",
+            "popularity": 1879.619,
+            "poster_path": "/o0PgoBD6jLYId3LYpu9yUY06SLT.jpg",
+            "release_date": "2021-09-01",
+            "title": "애프터: 관계의 함정",
+            "video": false,
+            "vote_average": 7.3,
+            "vote_count": 872
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/mu8RKavbv7Ml48twHQ6XVk7zw8e.jpg",
+            "genre_ids": [
+                28,
+                80,
+                53
+            ],
+            "id": 796499,
+            "original_language": "en",
+            "original_title": "Army of Thieves",
+            "overview": "작은 도시의 은행원에게 미스터리의 여인이 접근한다. 그녀가 건넨 위험한 제안. 철통같기로 이름난 유럽 전역의 금고를 털자는 것이다. \"아미 오브 더 데드\"의 프리퀄.",
+            "popularity": 1801.254,
+            "poster_path": "/5YCg0PFnGxDKb24Lmhxz8p4Q8j1.jpg",
+            "release_date": "2021-10-27",
+            "title": "아미 오브 더 데드: 도둑들",
+            "video": false,
+            "vote_average": 7,
+            "vote_count": 701
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/eeijXm3553xvuFbkPFkDG6CLCbQ.jpg",
+            "genre_ids": [
+                878,
+                12
+            ],
+            "id": 438631,
+            "original_language": "en",
+            "original_title": "Dune",
+            "overview": "10191년, 아트레이데스 가문의 후계자인 폴은 시간과 공간을 초월해 과거와 미래를 모두 볼 수 있고, 더 나은 미래를 만들 유일한 구원자인 예지된 자의 운명을 타고났다. 그리고 어떤 계시처럼 매일 꿈에서 아라키스의 행성에 있는 한 여인을 만난다. 귀족들이 지지하는 아트레이데스 가문에 대한 황제의 질투는 폴과 그 일족들을 죽음이 기다리는 아라키스로 이끄는데...",
+            "popularity": 1724.475,
+            "poster_path": "/wv22frLmCpXDRjKj4MWFwa4eTOK.jpg",
+            "release_date": "2021-09-15",
+            "title": "듄",
+            "video": false,
+            "vote_average": 8,
+            "vote_count": 4009
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/d0mpUFKzoPwF1KsdjHpkkaYSvKm.jpg",
+            "genre_ids": [
+                37
+            ],
+            "id": 618162,
+            "original_language": "en",
+            "original_title": "The Harder They Fall",
+            "overview": "황야의 무법자 냇 러브(조너선 메이저스)는 숙적 루퍼스 벅(이드리스 엘바)이 출소한다는 소식에 흩어졌던 팀을 불러 모아 미뤄뒀던 복수를 다시 시작한다. 이 계획에 함께 뛰어든 이들은 옛 연인 '역마차' 메리(자시 베츠), ‘왼팔이자 오른팔’인 성질 나쁜 빌 피켓(에디 가세기)과 빠른 총잡이 짐 벡워스(RJ 사일러) 그리고 어제의 적에서 오늘의 아군으로 돌아선 미지의 인물 등이 있다. 하지만 루퍼스 벅 일당도 만만치 않다. 위험천만한 트루디 스미스(레지나 킹), 체로키 빌(러키스 스탠필드) 같은 사전에 패배란 없는 무시무시한 강자들이 합류해 힘을 보탠다.",
+            "popularity": 1770.032,
+            "poster_path": "/dv8KHbhCTqPZ1qfuf8XZRiY5a6f.jpg",
+            "release_date": "2021-10-22",
+            "title": "더 하더 데이 폴",
+            "video": false,
+            "vote_average": 6.7,
+            "vote_count": 300
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/8Y43POKjjKDGI9MH89NW0NAzzp8.jpg",
+            "genre_ids": [
+                35,
+                28,
+                12,
+                878
+            ],
+            "id": 550988,
+            "original_language": "en",
+            "original_title": "Free Guy",
+            "overview": "평범한 직장, 절친 그리고 한 잔의 커피.  평화로운 일상 속 때론 총격전과 날강도가 나타나는 버라이어티한 ‘프리시티’에 살고 있는 ‘가이’. 그에겐 뭐 하나 부족한 것이 없었다. 우연히 마주친 그녀에게 한눈에 반하기 전까지는…  갖은 노력 끝에 다시 만난 그녀는 ‘가이’가 비디오 게임 ‘프리시티’에 사는 배경 캐릭터이고, 이 세상은 곧 파괴될 거라 경고한다. 혼란에 빠진 ‘가이’ 그러나 그는 ‘프리시티’의 파괴를 막기 위해 더 이상 배경 캐릭터가 아닌, 히어로가 되기로 결심한다.",
+            "popularity": 1515.836,
+            "poster_path": "/sEYyQ4lW43jg77yTiTSRUNVdtMc.jpg",
+            "release_date": "2021-08-11",
+            "title": "프리 가이",
+            "video": false,
+            "vote_average": 7.8,
+            "vote_count": 3691
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/vK18znei8Uha2z7ZhZtBa40HIrm.jpg",
+            "genre_ids": [
+                28,
+                12,
+                878
+            ],
+            "id": 634649,
+            "original_language": "en",
+            "original_title": "Spider-Man: No Way Home",
+            "overview": "정체가 탄로난 스파이더맨 ‘피터 파커’(톰 홀랜드)가 시간을 되돌리기 위해 ‘닥터 스트레인지’(베네딕트 컴버배치)의 도움을 받던 중 뜻하지 않게 멀티버스가 열리게 되고, 이를 통해 자신의 숙적 ‘닥터 옥토퍼스’(알프리드 몰리나)가 나타나며 사상 최악의 위기를 맞게 되는 이야기를 그린 마블 액션 블록버스터.",
+            "popularity": 1518.741,
+            "poster_path": "/gotJ8QnS3hROVcDTG9PXImtNQC7.jpg",
+            "release_date": "2021-12-15",
+            "title": "스파이더맨: 노 웨이 홈",
+            "video": false,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/7h5WAPAcUzOWpp2jrwHBB48790j.jpg",
+            "genre_ids": [
+                16,
+                28
+            ],
+            "id": 843241,
+            "original_language": "ja",
+            "original_title": "劇場版 七つの大罪 光に呪われし者たち",
+            "overview": "세계 평화를 위협하는 악의 집단에 맞서 싸우는 대죄인들의 활약을 그린 애니메이션",
+            "popularity": 1090.072,
+            "poster_path": "/gtiNyP9BoQmPzjeDhvofUtUxpJV.jpg",
+            "release_date": "2021-07-02",
+            "title": "일곱 개의 대죄: 빛에 저주받은 자들",
+            "video": false,
+            "vote_average": 8.2,
+            "vote_count": 224
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/VuukZLgaCrho2Ar8Scl9HtV3yD.jpg",
+            "genre_ids": [
+                878,
+                28
+            ],
+            "id": 335983,
+            "original_language": "en",
+            "original_title": "Venom",
+            "overview": "진실을 위해서라면 몸을 사리지 않고 사회의 부조리를 취재하는 정의로운 열혈 기자 에디 브록. 거대 기업 라이프 파운데이션의 생체실험에 의혹을 품고 뒤를 쫓던 그는 이들의 사무실에 잠입했다가 실험실에서 외계 생물체 심비오트의 기습 공격을 받게 된다. 심비오트가 숙주의 몸과 정신을 지배할 때 능력을 발휘하는 베놈은 에디의 몸에 기생하며 갖가지 소동을 일으킨다. 한편 비밀리에 인간과 심비오트를 결합해 새로운 생명체를 만들려는 시도를 계속하던 라이프 파운데이션의 회장 드레이크 또한 심비오트의 숙주가 된다.",
+            "popularity": 1057.55,
+            "poster_path": "/x4ojC59pYfPlAP4mmy2LSkCCuK2.jpg",
+            "release_date": "2018-09-28",
+            "title": "베놈",
+            "video": false,
+            "vote_average": 6.8,
+            "vote_count": 12217
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/bwPXMrDyPDaSiQaOmUo10GLn0rf.jpg",
+            "genre_ids": [
+                27
+            ],
+            "id": 775943,
+            "original_language": "es",
+            "original_title": "Llanto Maldito",
+            "overview": "",
+            "popularity": 1052.978,
+            "poster_path": "/iwlmZKndp7fIfHbxVzQtk9zby3A.jpg",
+            "release_date": "2021-07-29",
+            "title": "Llanto Maldito",
+            "video": false,
+            "vote_average": 4.8,
+            "vote_count": 9
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/c2cb0lLvbzvHlSUo35W8CfP0kYO.jpg",
+            "genre_ids": [
+                53
+            ],
+            "id": 714968,
+            "original_language": "en",
+            "original_title": "Plan A",
+            "overview": "히틀러와 괴벨스가 자살하며 제2차 세계대전이 끝나자, 살아남은 유대인 일부는 ‘나캄’(히브리어로 복수)이라는 비밀 결사를 조직한다. “눈에는 눈”이라는 구약의 가르침을 따르는 그들은 나치가 학살한 600만 명의 유대인에 대한 복수로 600만 명의 독일인을 살해할 계획을 세우는데...",
+            "popularity": 870.7,
+            "poster_path": "/vxurWEPaBQrcxJLFwd78mqiFDR2.jpg",
+            "release_date": "2021-08-16",
+            "title": "플랜 A",
+            "video": false,
+            "vote_average": 3.9,
+            "vote_count": 7
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/6kLL8ZkV7ge8VvH4SNTMwW8gEWM.jpg",
+            "genre_ids": [
+                53,
+                10770
+            ],
+            "id": 854442,
+            "original_language": "en",
+            "original_title": "Next-Door Nightmare",
+            "overview": "",
+            "popularity": 914.338,
+            "poster_path": "/lkCi5Cm71QqHEwuIppWoI7paiZn.jpg",
+            "release_date": "2021-07-08",
+            "title": "Next-Door Nightmare",
+            "video": false,
+            "vote_average": 7.3,
+            "vote_count": 3
+        }
+    ],
+    "total_pages": 500,
+    "total_results": 10000
+}

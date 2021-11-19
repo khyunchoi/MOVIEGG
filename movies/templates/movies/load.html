@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <title>Document</title>
+</head>
+<body>
+<div style="margin-left: 100px; margin-top: 150px; display: flex;">
+  <div style="text-align: center; background-color: #4285F4 ; width: 40%; height: 100%; border: 5px #4285F4 solid; border-radius: 20px;">
+    <br>
+    <h1 style="color:white"> 박스오피스 파워랭킹</h1>
+      
+      {% for movie in movies %}
+      <div class="mx-2 my-3" style="display: flex; text-align: center; justify-content:left; background-color:white; border: 2px black solid; border-radius: 14px;">
+      <div style="display:inline-block; border: 1px black solid; border-radius: 10px; width:15vh; height:7vh">
+        {% if movie.rank_inten > 0 %}
+          <a style="color:blue;">+{{ movie.rank_inten }}</a>
+        {% elif movie.rank_inten < 0 %}
+          <a style="color:red;">{{ movie.rank_inten }}</a>
+        {% else %}
+          <a>{{ movie.rank_inten }}</a>
+        {% endif %}
+        <a style="font-weight: bold; font-size: 40px">{{ movie.rank }}</a>
+      </div>
+        <span class="mt-3" style="margin-left: 10%">
+        <h3>{{ movie.title }}</h3>
+        </span>
+      </div>
+      {% endfor %}
+      
+  </div>
+  <div style="margin-left: 100px; background-color: yellow; width: 50%; height: 1000px">
+    <h3 style="margin-left: 20px;">이맘때쯤 유행했던 영화</h3>
+    <hr>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
