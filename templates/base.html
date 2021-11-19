@@ -64,7 +64,32 @@
         <a href="{% url 'articles:freeboard' %}">자유게시판</a>
       </li>
     </ul>
-    <a type="button" class="btn nav-login">로그인</a>
+    {% if request.user.is_authenticated %}
+    {% comment %} <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        닉네임
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" href="#">프로필</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:password_change' %}">비밀번호변경</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:update' %}">개인정보변경</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}">로그아웃</a></li>
+      </ul>
+    </div> {% endcomment %}
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #FFFFFF;">
+        {{ request.user.nickname }}
+      </a>
+      <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+        <li><a class="dropdown-item" href="#">프로필</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:password_change' %}">비밀번호변경</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:update' %}">개인정보변경</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:logout' %}" style="color: #EE5C5C;">로그아웃</a></li>
+      </ul>
+    </li>
+    {% else %}
+    <a href="{% url 'accounts:login' %}" type="button" class="btn nav-login">로그인</a>
+    {% endif %}
   </nav>
   {% block content %}
   {% endblock content %}
