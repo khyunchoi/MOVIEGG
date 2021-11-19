@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+  .articles-freeboard {
+    box-sizing: border-box;
+    width: 300px;
+    heigth: 300px;
+    border: solid black 1px;
+    padding: 50px;
+  }
+
+  .articles-content {
+    height: calc(100% - 36px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .articles-content-box {
+    heigth: 700px;
+    width: 80%;
+    background-color: white;
+  }
+
+  .articles-content-table {
+    width: 100%;
+  }
+  
+  .articles-table-center {
+    text-align: center;
+  }
+
+  tr {
+    border-bottom: 1px solid #C5CBD0;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div class="articles-content">
+  <div class="articles-content-box">
+    <table class="articles-content-table border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 1px solid C5CBD0;">
+          <th class="articles-table-center" style="width:10%">
+            <span>번호</span>
+          </th>
+          <th class="articles-table-center" style="width:45%">
+            <span>제목</span>
+          </th>
+          <th class="articles-table-center" style="width:10%">
+            <span>글쓴이</span>
+          </th>
+          <th class="articles-table-center" style="width:15%">
+            <span>등록일</span>
+          </th>
+          <th class="articles-table-center" style="width:10%">
+            <span>조회수</span>
+          </th>
+          <th class="articles-table-center" style="width:10%">
+            <span>추천수</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for freeboard in page_obj %}
+          <tr>
+            <td class="articles-table-center">
+              <span>{{ freeboard.pk }}</span>
+            </td>
+            <td>
+              <a href="{% url 'articles:freeboard_detail' freeboard.pk %}">
+                <div>
+                  {% if freeboard.title|length > 20 %}
+                    <span>{{ freeboard.title|slice:":20" }}...</span>
+                  {% else %}
+                    <span>{{ freeboard.title }}</span>
+                  {% endif %}
+                </div>
+              </a>
+            </td>
+            <td>
+              <span>{{ freeboard.user.nickname }}</span>
+            </td>
+            <td class="articles-table-center">
+              <span>{{ freeboard.created_at.date.year }}-{{ freeboard.created_at.date.month }}-{{ freeboard.created_at.date.day }}</span>
+            </td>
+            <td class="articles-table-center">
+              <span>{{ freeboard.hit }}</span>
+            </td>
+            <td class="articles-table-center">
+              <span>{{ freeboard.like_users.count }}</span>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        {% if page_obj.has_previous %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+        {% endif %}
+        {% for num in page_obj.paginator.page_range %}
+          <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+        {% endfor %}
+        {% if page_obj.has_next %}
+          <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+</div>
+{% endblock content %}

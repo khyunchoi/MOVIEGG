@@ -34,10 +34,18 @@ class ReviewComment(models.Model):
 class FreeBoard(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
+    hit = models.PositiveIntegerField(default=0) # 조회수
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(upload_to="freeboard-images/", null=True, blank=True)
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    like_users = models.ManyToManyField(settings.AUTH_USER_MODEL, related_name='like_freeboards')
+
+    # 조회수 1 증가 시키는 함수
+    @property
+    def update_counter(self):
+        self.hit = self.hit + 1
+        self.save()
 
 
 class FreeComment(models.Model):
