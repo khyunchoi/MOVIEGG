@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{{ review.update_counter }}
+
+{% block content %}
+{{ review.title }}
+{{ review.content }}
+{{ review.created_at }}
+{{ review.grade }}
+{{ review.like_users.count }}
+{% endblock content %}
