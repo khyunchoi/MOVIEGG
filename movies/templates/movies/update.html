@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  {% for movie in movies %}
+    {{ movie.title }}
+    <br>
+    <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
+    <br>
+    {{ movie.release_date }}
+    <br>
+    {{ movie.director }}
+    <br>
+    {{ movie.showtime }}
+    <br>
+    {{ movie.plot}}
+    {% for actor in movie.movie_actor.all %}
+      {{ actor.name }}
+      <br>
+    {% endfor %}
+    <br>
+    {% for genre in movie.genre.all %}
+      {{ genre.name }}
+      <br>
+    {% endfor %}
+    <hr>
+
+    
+    
+  
+  {% endfor %}  
+</body>
+</html>
