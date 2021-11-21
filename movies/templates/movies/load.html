@@ -6,6 +6,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
   <title>Document</title>
+  <style>
+  .img_thumb {
+    width: 27%;
+    height: 35%;
+    margin : 2%;
+    margin-left: 3.5%;
+  }
+  .recimg {
+    width: 27%;
+    height: 35%;
+    margin : 2%;
+    margin-left: 3.5%;
+  }
+  </style>
 </head>
 <body>
 <div style="margin-left: 100px; margin-top: 150px; display: flex;">
@@ -30,11 +44,22 @@
         </span>
       </div>
       {% endfor %}
-      
   </div>
   <div style="margin-left: 100px; background-color: yellow; width: 50%; height: 1000px">
-    <h3 style="margin-left: 20px;">이맘때쯤 유행했던 영화</h3>
+    <h3 style="margin-left: 3%; margin-top: 2%">이맘때쯤 유행했던 영화</h3>
     <hr>
+    {% for img in imgsrc %}
+      {{ img|safe }}
+      {% comment %} {% for pic in img %}
+        {{ pic }}
+      {% endfor %} {% endcomment %}
+    {% endfor %}
+    <br><br><br><br>  
+    <h3 style="margin-left: 20px;">당신에게 추천하는 영화</h3>
+    <hr>
+    {% for img in recimg %}
+      <img class="recimg" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ img }}" alt="">
+    {% endfor %}
   </div>
 </div>
 

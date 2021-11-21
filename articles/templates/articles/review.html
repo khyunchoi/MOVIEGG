@@ -15,7 +15,7 @@
 {% block content %}
 {% for review in page_obj %}
   <div class="articles-review">
-    {{ review.title }}
+    <a href="{% url 'articles:review_detail' review.pk %}">{{ review.title }}</a>
     {{ review.created_at }}
     {{ review.like_users.count }}
     평점 : {{ review.grade }}

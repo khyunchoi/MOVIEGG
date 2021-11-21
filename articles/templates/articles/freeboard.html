@@ -2,16 +2,8 @@
 
 {% block style %}
 <style>
-  .articles-freeboard {
-    box-sizing: border-box;
-    width: 300px;
-    heigth: 300px;
-    border: solid black 1px;
-    padding: 50px;
-  }
-
   .articles-content {
-    height: calc(100% - 36px);
+    height: 1000px;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -19,13 +11,14 @@
   }
 
   .articles-content-box {
-    heigth: 700px;
-    width: 80%;
+    height: 700px;
+    width: 90%;
     background-color: white;
   }
 
   .articles-content-table {
     width: 100%;
+    height: 85%;
   }
   
   .articles-table-center {
@@ -34,6 +27,7 @@
 
   tr {
     border-bottom: 1px solid #C5CBD0;
+    height: 67.5px;
   }
 </style>
 {% endblock style %}
@@ -43,8 +37,8 @@
   <div class="articles-content-box">
     <table class="articles-content-table border-collapse: collapse;">
       <thead>
-        <tr style="border-bottom: 1px solid C5CBD0;">
-          <th class="articles-table-center" style="width:10%">
+        <tr>
+          <th class="articles-table-center" style="width:10%; padding: 15px 0;">
             <span>번호</span>
           </th>
           <th class="articles-table-center" style="width:45%">
@@ -71,8 +65,8 @@
               <span>{{ freeboard.pk }}</span>
             </td>
             <td>
-              <a href="{% url 'articles:freeboard_detail' freeboard.pk %}">
-                <div>
+              <a style="text-decoration: none; color: #484848;" href="{% url 'articles:freeboard_detail' freeboard.pk %}">
+                <div style="font-size: 20px;">
                   {% if freeboard.title|length > 20 %}
                     <span>{{ freeboard.title|slice:":20" }}...</span>
                   {% else %}
@@ -82,7 +76,7 @@
               </a>
             </td>
             <td>
-              <span>{{ freeboard.user.nickname }}</span>
+              <span style="margin: 0 20px;">{{ freeboard.user.nickname }}</span>
             </td>
             <td class="articles-table-center">
               <span>{{ freeboard.created_at.date.year }}-{{ freeboard.created_at.date.month }}-{{ freeboard.created_at.date.day }}</span>
@@ -95,22 +89,45 @@
             </td>
           </tr>
         {% endfor %}
+
+        {% if page_number == page_obj.paginator.num_pages %}
+          {% for _ in n %}
+            <tr>
+            </tr>
+          {% endfor %}
+        {% endif %}
       </tbody>
     </table>
 
-    <nav aria-label="Page navigation example">
-      <ul class="pagination">
-        {% if page_obj.has_previous %}
-          <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-        {% endif %}
-        {% for num in page_obj.paginator.page_range %}
-          <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-        {% endfor %}
-        {% if page_obj.has_next %}
-          <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-        {% endif %}
-      </ul>
-    </nav>
+    <div class="d-flex justify-content-between align-items-center" style="height: calc(700px - 85%); background-color: #F1F1F1;">
+      <div style="margin-left: 25px;"></div>
+      <nav aria-label="Page navigation example">
+        <ul class="pagination">
+          {% if page_obj.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+          {% else %}
+            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+          {% endif %}
+
+          {% for num in page_obj.paginator.page_range %}
+            {% if num == page_number %}
+              <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+            {% else %}
+              <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+          {% endfor %}
+
+          {% if page_obj.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
+          {% else %}
+            <li class="page-item disabled"><a class="page-link">Next</a></li>
+          {% endif %}
+        </ul>
+      </nav>
+      <div style="margin-right: 20px;">
+        <a class="btn" style="background-color: #4285F4; color: white;" href="{% url 'articles:freeboard_create' %}">글쓰기</a>
+      </div>
+    </div>
   </div>
 </div>
 {% endblock content %}
