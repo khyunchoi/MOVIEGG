@@ -10,6 +10,14 @@ from django.forms.models import model_to_dict
 from ast import literal_eval
 
 # Create your views here.
+def movie_detail(request, movie_pk):
+    movie = Movie.objects.get(pk=movie_pk)
+    context = {
+        'movie': movie,
+    }
+    return render(request, 'movies/movie_detail.html', context)
+
+
 def load(request):
     # json 데이터를 파일을 만들기 위해서 가져오는 과정
     rank_now = int(time.strftime('%Y%m%d'))-7

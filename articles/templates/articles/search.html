@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% for movie in movies %}
+  <a href="{% url 'movies:movie_detail' movie.pk %}">
+    {{ movie.title }}
+  </a>
+{% endfor %}
+{% for review in reviews %}
+  <a href="{% url 'articles:review_detail' review.pk %}">
+    {{ review.title }}
+  </a>
+{% endfor %}
+{% for freeboard in freeboards %}
+  <a href="{% url 'articles:freeboard_detail' freeboard.pk %}">
+    {{ freeboard.title }}
+  </a>
+{% endfor %}
+{% endblock content %}

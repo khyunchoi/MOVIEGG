@@ -1,8 +1,11 @@
+from django.http.response import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views.decorators.http import require_GET, require_POST, require_http_methods
 from django.core.paginator import Paginator
 from .models import Review, ReviewComment, FreeBoard, FreeComment
 from .forms import ReviewForm, ReviewCommentForm, FreeBoardForm, FreeCommentForm
+from movies.models import Movie
+from django.db.models import Q
 
 # Create your views here.
 def index(request):
@@ -31,6 +34,7 @@ def review_create(request):
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
+            review.movie = Movie.objects.get(id=1) # 임시
             review.save()
             return redirect('articles:review_detail', review.pk)
     else:
@@ -71,8 +75,30 @@ def review_update(request, review_pk):
 
 def review_delete(request, review_pk):
     review = get_object_or_404(Review, pk=review_pk)
-    review.delete()
+    if request.user.is_authenticated:
+        if request.user == review.user:
+            review.delete()
     return redirect('articles:review')
+
+
+def review_like(request, review_pk):
+    if request.user.is_authenticated:
+        review = get_object_or_404(Review, pk=review_pk)
+
+        if review.like_users.filter(pk=request.user.pk).exists():
+            review.like_users.remove(request.user)
+            liked = False
+        else:
+            review.like_users.add(request.user)
+            liked = True
+        
+        like_count = review.like_users.count()
+        context = {
+            'liked': liked,
+            'like_count': like_count,
+        }
+        
+        return JsonResponse(context)
 
 
 def review_comment_create(request, review_pk):
@@ -107,6 +133,8 @@ def freeboard(request):
     page_obj = paginator.get_page(page_number)
 
     context = {
+        'n' : range(8 - len(freeboards) % 8),
+        'page_number': int(page_number),
         'page_obj': page_obj,
     }
     return render(request, 'articles/freeboard.html', context)
@@ -158,8 +186,30 @@ def freeboard_update(request, freeboard_pk):
 
 def freeboard_delete(request, freeboard_pk):
     freeboard = get_object_or_404(FreeBoard, pk=freeboard_pk)
-    freeboard.delete()
+    if request.user.is_authenticated:
+        if request.user == freeboard.user:
+            freeboard.delete()
     return redirect('articles:freeboard')
+
+
+def freeboard_like(request, freeboard_pk):
+    if request.user.is_authenticated:
+        freeboard = get_object_or_404(FreeBoard, pk=freeboard_pk)
+
+        if freeboard.like_users.filter(pk=request.user.pk).exists():
+            freeboard.like_users.remove(request.user)
+            liked = False
+        else:
+            freeboard.like_users.add(request.user)
+            liked = True
+        
+        like_count = freeboard.like_users.count()
+        context = {
+            'liked': liked,
+            'like_count': like_count,
+        }
+        
+        return JsonResponse(context)
 
 
 def free_comment_create(request, freeboard_pk):
@@ -184,3 +234,17 @@ def free_comment_delete(request, freeboard_pk, comment_pk):
     comment = get_object_or_404(FreeComment, pk=comment_pk)
     comment.delete()
     return redirect('articles:freeboard_detail', freeboard.pk)
+
+
+def search(request):
+    word = request.GET.get('word')
+    movies = Movie.objects.filter(Q(title__icontains=word) | Q(plot__icontains=word))
+    reviews = Review.objects.filter(Q(title__icontains=word) | Q(content__icontains=word))
+    freeboards = FreeBoard.objects.filter(Q(title__icontains=word) | Q(content__icontains=word))
+
+    context = {
+        'movies': movies,
+        'reviews': reviews,
+        'freeboards': freeboards,
+    }
+    return render(request, 'articles/search.html', context)
