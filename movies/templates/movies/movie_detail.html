@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{{ movie.title }}
+<br>
+<img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
+<br>
+{{ movie.release_date }}
+<br>
+{{ movie.director }}
+<br>
+{{ movie.showtime }}
+<br>
+{{ movie.plot}}
+{% for actor in movie.movie_actor.all %}
+  {{ actor.name }}
+  <br>
+{% endfor %}
+<br>
+{% for genre in movie.genre.all %}
+  {{ genre.name }}
+  <br>
+{% endfor %}
+<hr>
+관련 리뷰
+{% for review in movie.review_set.all %}
+  <a href="{% url 'articles:review_detail' review.pk %}">
+    {{ review.title }}
+  </a>
+{% endfor %}
+{% endblock content %}

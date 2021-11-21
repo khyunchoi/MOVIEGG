@@ -16,6 +16,9 @@
   </div>
 </div>
 <div>
+  <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.movie.poster_path }}" alt="포스터">
+</div>
+<div>
   {{ review.title }}
 </div>
 <div>
@@ -24,9 +27,33 @@
 <div>
   {{ review.grade }}
 </div>
-<div>
-  {{ review.like_users.count }}
+<div id="likeCnt-{{ review.pk }}">
+  {{ review.like_users.count }} 명이 이 글을 좋아합니다.
 </div>
+<div>
+  <form data-review-id="{{ review.pk }}" method="POST" class="like-form">
+    {% csrf_token %}
+    {% if user in review.like_users.all %}
+      <button id="likeBtn-{{ review.pk }}">
+        안좋아요
+      </button>
+    {% else %}
+      <button id="likeBtn-{{ review.pk }}">
+        좋아요
+      </button>
+    {% endif %}
+  </form>
+</div>
+
+{% if review.user == request.user %}
+  <div>
+    <a href="{% url 'articles:review_update' review.pk %}">수정하기</a>
+    <form action="{% url 'articles:review_delete' review.pk %}" method="POST">
+      {% csrf_token %}
+      <button>삭제하기</button>
+    </form>
+  </div>
+{% endif %}
 
 {% if request.user.is_authenticated %}
   <form action="{% url 'articles:review_comment_create' review.pk %}" method="POST">
@@ -46,3 +73,41 @@
   <p><b>댓글이 없어요..</b></p>
 {% endfor %}
 {% endblock content %}
+
+{% block script %}
+<script>
+  const likeFormList = document.querySelectorAll('.like-form')
+  likeFormList.forEach((likeForm) => {
+    likeForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      const reviewId = e.target.dataset.reviewId
+      const requestUrl = `/articles/${reviewId}/review_like/`
+      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+      axios.post(requestUrl, {}, { headers: {'X-CSRFToken': csrftoken} })
+        .then((res) => {
+          const likeCount = res.data.like_count
+          const liked = res.data.liked
+          const likeBtn = document.querySelector(`#likeBtn-${reviewId}`)
+
+          if (liked) {
+            likeBtn.innerText = '안좋아요'
+          } else {
+            likeBtn.innerText = '좋아요'
+          }
+
+          const likeCnt = document.querySelector(`#likeCnt-${reviewId}`)
+          likeCnt.innerText = `${likeCount} 명이 이 글을 좋아합니다.`
+        })
+        .catch((err) => {
+          if (err.response.status === 401) {
+            window.location.href = '/accounts/login/'
+          } else {
+            window.alert(err)
+          }
+        })
+    })
+  })
+</script>
+{% endblock script %}

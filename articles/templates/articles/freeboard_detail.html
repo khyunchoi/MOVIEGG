@@ -26,9 +26,33 @@
     <img src="{{ freeboard.image.url }}" alt="이미지">
   {% endif %}
 </div>
-<div>
-  {{ freeboard.like_users.count }}
+<div id="likeCnt-{{ freeboard.pk }}">
+  {{ freeboard.like_users.count }}  명이 이 글을 좋아합니다.
 </div>
+<div>
+  <form data-freeboard-id="{{ freeboard.pk }}" method="POST" class="like-form">
+    {% csrf_token %}
+    {% if user in freeboard.like_users.all %}
+      <button id="likeBtn-{{ freeboard.pk }}">
+        안좋아요
+      </button>
+    {% else %}
+      <button id="likeBtn-{{ freeboard.pk }}">
+        좋아요
+      </button>
+    {% endif %}
+  </form>
+</div>
+
+{% if freeboard.user == request.user %}
+  <div>
+    <a href="{% url 'articles:freeboard_update' freeboard.pk %}">수정하기</a>
+    <form action="{% url 'articles:freeboard_delete' freeboard.pk %}" method="POST">
+      {% csrf_token %}
+      <button>삭제하기</button>
+    </form>
+  </div>
+{% endif %}
 
 {% if request.user.is_authenticated %}
   <form action="{% url 'articles:free_comment_create' freeboard.pk %}" method="POST">
@@ -48,3 +72,41 @@
   <p><b>댓글이 없어요..</b></p>
 {% endfor %}
 {% endblock content %}
+
+{% block script %}
+<script>
+  const likeFormList = document.querySelectorAll('.like-form')
+  likeFormList.forEach((likeForm) => {
+    likeForm.addEventListener('submit', (e) => {
+      e.preventDefault()
+
+      const freeboardId = e.target.dataset.freeboardId
+      const requestUrl = `/articles/${freeboardId}/freeboard_like/`
+      const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value
+
+      axios.post(requestUrl, {}, { headers: {'X-CSRFToken': csrftoken} })
+        .then((res) => {
+          const likeCount = res.data.like_count
+          const liked = res.data.liked
+          const likeBtn = document.querySelector(`#likeBtn-${freeboardId}`)
+
+          if (liked) {
+            likeBtn.innerText = '안좋아요'
+          } else {
+            likeBtn.innerText = '좋아요'
+          }
+
+          const likeCnt = document.querySelector(`#likeCnt-${freeboardId}`)
+          likeCnt.innerText = `${likeCount} 명이 이 글을 좋아합니다.`
+        })
+        .catch((err) => {
+          if (err.response.status === 401) {
+            window.location.href = '/accounts/login/'
+          } else {
+            window.alert(err)
+          }
+        })
+    })
+  })
+</script>
+{% endblock script %}

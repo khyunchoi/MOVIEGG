@@ -3,43 +3,82 @@
 
 {% block style %}
 <style>
+  html, body {
+    height: 100%;
+    background-color: #4285F4;
+  }
+
+  .nav-index {
+    background-color: #4285F4;
+  }
+
+  .index-content {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .index-logo {
+    margin: 50px 0;
+  }
+
+  .index-search-form {
+    background-color: white;
+    padding: 8px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .index-search-input {
+    border: 0px;
+    width: 100%;
+  }
+
+  .index-article {
+    display: flex;
+    width: 1000px;
+    height: 600px;
+    background-color: white;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+
   .index-recommend {
     box-sizing: border-box;
-    width: 300px;
-    heigth: 300px;
-    border: solid black 1px;
-    padding: 50px;
+    width: 50%;
+    border-right: 2px solid #D0C7C7;
   }
+
   .index-review {
     box-sizing: border-box;
-    width: 300px;
-    heigth: 300px;
-    border: solid black 1px;
-    padding: 50px;
+    width: 50%;
   }
+
 </style>
 {% endblock style %}
 
 {% block content %}
-<div>
-  <img src="{% static 'moviegg.png' %}" alt="로고">
-</div>
-<div>
-  <form action="">
-    <input type="text">
-    <button>.GG</button>
+<div class="index-content">
+  <div class="index-logo">
+    <img src="{% static 'moviegg.png' %}" alt="로고">
+  </div>
+  <form class="index-search-form" action="{% url 'articles:search' %}" method="GET">
+    <input class="index-search-input" type="search" placeholder="검색어를 입력하세요..." aria-label="Search" name="word" value="{{word}}">
+    <button class="btn" type="submit" style="background-color: #08A1F9; color: white; border-radius: 0; font-weight: bold;">.GG</button>
   </form>
-</div>
-<div class="index-recommend">
-  <div>
-    MOVIE.GG 추천영화
+  <div class="index-article">
+    <div class="index-recommend">
+      <div style="border-bottom: 2px solid #D0C7C7; padding: 3px;">
+        MOVIE.GG 추천영화
+      </div>
+    </div>
+    <div class="index-review">
+      <div style="border-bottom: 2px solid #D0C7C7; padding: 3px;">
+        Best Review
+      </div>
+    </div>
   </div>
-  <hr>
-</div>
-<div class="index-review">
-  <div>
-    Best Review
-  </div>
-  <hr>
 </div>
 {% endblock content %}
