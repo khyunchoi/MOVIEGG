@@ -1,10 +1,11 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth import update_session_auth_hash
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import update_session_auth_hash, get_user_model
 from django.contrib.auth import login as auth_login
 from django.contrib.auth import logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_POST
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomPasswordChangeForm, CustomAuthenticationForm
+from django.core.paginator import Paginator
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -18,7 +19,7 @@ def signup(request):
         form = CustomUserCreationForm(request.POST)
         if form.is_valid():
             user = form.save()
-            auth_login(request, user)
+            auth_login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             return redirect('articles:index')
     else:
         form = CustomUserCreationForm()
@@ -46,7 +47,7 @@ def login(request):
     return render(request, 'accounts/login.html', context)
 
 
-# @require_POST
+@require_POST
 def logout(request):
     auth_logout(request)
     return redirect('articles:index')
@@ -90,3 +91,12 @@ def practice(request):
     }
     return render(request, 'accounts/practice.html', context)
 
+
+@login_required
+def profile(request, user_pk):
+    person = get_object_or_404(get_user_model(), pk=user_pk)
+
+    context = {
+        'person': person,
+    }
+    return render(request, 'accounts/profile.html', context)
