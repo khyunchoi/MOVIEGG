@@ -16,6 +16,7 @@ class Movie(models.Model):
     showtime = models.IntegerField(null=True)
     poster_path = models.TextField(default='', null=True)
     genre = models.ManyToManyField(Genre, related_name='movie_genre')
+    vote_average = models.FloatField(null=True)
 
 class Actor(models.Model):
     movie_code = models.ManyToManyField(Movie, related_name='movie_actor')
