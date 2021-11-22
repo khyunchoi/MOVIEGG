@@ -21,6 +21,13 @@
   {{ genre.name }}
   <br>
 {% endfor %}
+평점: {{ movie.vote_average }}
+<br>
+
+<a href="{% url 'articles:review_create' movie.pk %}">
+  리뷰쓰기
+</a>
+
 <hr>
 관련 리뷰
 {% for review in movie.review_set.all %}
