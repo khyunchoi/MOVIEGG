@@ -9,8 +9,33 @@ from django.db.models import Q
 
 # Create your views here.
 def index(request):
-    context = {
+    # 평점 기준으로 영화를 정렬해서 애니메이션 제외 top5 선정
+    movies = Movie.objects.order_by('-vote_average')
+    top_movies = movies[:5]
 
+    # top_movies = []
+    # for movie in movies:
+    #     if len(top_movies) < 5:
+    #         for genre in movie.genre.all():
+    #             if genre.name == '애니메이션':
+    #                 break
+    #         else:
+    #             top_movies.append(movie)
+    #     else:
+    #         break
+    
+    # 추천수 기준으로 top5 리뷰 선정
+    reviews = Review.objects.all()
+
+    top_reviews = []
+    for review in reviews:
+        top_reviews.append([review.like_users.count(), review])
+    top_reviews.sort(key=lambda x:x[0], reverse=True)
+    top_reviews = top_reviews[:5]
+
+    context = {
+        'top_movies': top_movies,
+        'top_reviews': top_reviews,
     }
     return render(request, 'articles/index.html', context)
 
@@ -28,13 +53,13 @@ def review(request):
     return render(request, 'articles/review.html', context)
 
 
-def review_create(request):
+def review_create(request, movie_pk):
     if request.method == 'POST':
         form = ReviewForm(request.POST)
         if form.is_valid():
             review = form.save(commit=False)
             review.user = request.user
-            review.movie = Movie.objects.get(id=1) # 임시
+            review.movie = Movie.objects.get(pk=movie_pk)
             review.save()
             return redirect('articles:review_detail', review.pk)
     else:
