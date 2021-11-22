@@ -8,4 +8,6 @@ urlpatterns = [
     path('load/', views.load),
     path('movieupdate/', views.movieupdate),
     path('genreupdate/', views.genreupdate),
+    path('lolupdate/', views.leagueoflegend),
+    path('lolrecommend/', views.lolrecommend),
 ]

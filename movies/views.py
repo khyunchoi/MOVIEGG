@@ -4,7 +4,7 @@ from django.conf.urls import url
 from django.http.request import QueryDict
 import requests
 from bs4 import BeautifulSoup
-from .models import BoxofficeMovie, Genre, Movie, Actor
+from .models import BoxofficeMovie, Character, Genre, Movie, Actor
 from django.shortcuts import render
 from django.forms.models import model_to_dict
 from ast import literal_eval
@@ -127,8 +127,7 @@ def movieupdate(request):
 
                 showtime = runtime_text['runtime']
                 overview = runtime_text['overview']
-                # if not rec['release_date']:
-                #     rec['release_date'] = '0000-00-00'
+                
                 context ={
                     'movie_code' : rec['id'],
                     'title' : rec['title'],
@@ -139,10 +138,25 @@ def movieupdate(request):
                     'director' : director,
                     'vote_average' :  rec['vote_average']
                 }
-                
+                if not rec['release_date']:
+                    context['release_date'] = '9999-09-09'
                 movie = Movie.objects.get_or_create(**context)
-                for i in range(2):
-                    if len(cast):
+                if len(cast) > 2:
+                    for i in range(3):
+                        if len(cast):
+                            context = {
+                                'movie_code' : movie_id,
+                                'name' : cast[i]['name'] 
+                            }
+                            actor = Actor.objects.get_or_create(name=cast[i]['name'])
+                            actor = Actor.objects.get(name=cast[i]['name'])
+                            movie = Movie.objects.get(movie_code=rec['id'])
+                            movie.movie_actor.add(actor)
+                            # actor.movie_code.add(movie) 해도 똑같이 만들어짐
+                            # 중계테이블을 이용해서 참조/ 역참조 관계를 잘 만들어야함.
+                            # html으로 가져다 쓰고싶으면 for actor in movie.moive_actor :
+                else:
+                    for i in range(len(cast)):
                         context = {
                             'movie_code' : movie_id,
                             'name' : cast[i]['name'] 
@@ -151,10 +165,6 @@ def movieupdate(request):
                         actor = Actor.objects.get(name=cast[i]['name'])
                         movie = Movie.objects.get(movie_code=rec['id'])
                         movie.movie_actor.add(actor)
-                        # actor.movie_code.add(movie) 해도 똑같이 만들어짐
-                        # 중계테이블을 이용해서 참조/ 역참조 관계를 잘 만들어야함.
-                        # html으로 가져다 쓰고싶으면 for actor in movie.moive_actor :
-                
                 genres = rec['genre_ids']
                 for genre in genres:
                     genre = Genre.objects.get(genre_num=genre)
@@ -198,3 +208,22 @@ def genreupdate(request):
     }
 
     return render(request, 'movies/genreupdate.html' , context)
+
+def leagueoflegend(request):
+    with open("./leagueofcharacter.json", "r", encoding='UTF8') as json_file:
+        json_data = json.loads(json_file.read())
+
+        for rec in json_data['character']:
+            context ={
+                'number' : rec['character_number'],
+                'name' : rec['name']
+            }
+            character = Character.objects.get_or_create(**context)
+    return render(request, 'movies/temp.html')
+
+
+
+
+def lolrecommend(request):
+    # 질문지 1번을 꺼내올거야~
+    pass

@@ -1,0 +1,134 @@
+{
+  "character": [
+      {
+          "character_number": 32,
+          "name": "케넨"
+      },
+      {
+          "character_number": 33,
+          "name": "진"
+      },
+      {
+          "character_number": 34,
+          "name": "그레이브즈"
+      },
+      {
+          "character_number": 35,
+          "name": "미스포츈"
+      },
+      {
+          "character_number": 40,
+          "name": "녹턴"
+      },
+      {
+          "character_number": 41,
+          "name": "렝가"
+      },
+      {
+          "character_number": 42,
+          "name": "트린다미어"
+      },
+      {
+          "character_number": 43,
+          "name": "자르반"
+      },
+      {
+          "character_number": 44,
+          "name": "갱플랭크"
+      },
+      {
+          "character_number": 45,
+          "name": "초가스"
+      },
+        {
+          "character_number": 46,
+          "name": "우르곳"
+      },
+      {
+          "character_number": 47,
+          "name": "야스오"
+      },
+      {
+          "character_number": 37,
+          "name": "케이틀린"
+      },
+      {
+          "character_number": 36,
+          "name": "이즈리얼"
+      },
+      {
+          "character_number": 38,
+          "name": "자야"
+      },
+      {
+          "character_number": 39,
+          "name": "퀸"
+      },
+      {
+          "character_number": 50,
+          "name": "애니"
+      },
+      {
+          "character_number": 48,
+          "name": "아리"  
+      },
+      {
+          "character_number": 51,
+          "name": "빅토르"
+      },
+      {
+        "character_number": 55,
+        "name": "카서스"
+      },
+      {
+        "character_number": 54,
+        "name": "릴리아"
+      },
+      {
+        "character_number": 52,
+        "name": "티모"
+      },
+      {
+        "character_number": 49,
+        "name": "오른"
+      },
+      {
+        "character_number": 53,
+        "name": "하이머딩거"
+      },
+      {
+        "character_number": 60,
+        "name": "소나"
+      },
+      {
+        "character_number": 61,
+        "name": "세라핀"
+      },
+      {
+        "character_number": 58,
+        "name": "라칸"
+      },
+      {
+        "character_number": 63,
+        "name": "타릭"
+      },
+      {
+        "character_number": 59,
+        "name": "룰루"
+      },
+      {
+        "character_number": 56,
+        "name": "레오나"
+      },
+
+      {
+        "character_number": 62,
+        "name": "아이번"
+      },
+
+      {
+        "character_number": 57,
+        "name": "아무무"
+      }
+  ]
+}
