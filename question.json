@@ -1,219 +1,220 @@
 [
-{
-    "model": "movies.question",
-    "pk": 1,
-    "fields": {
-        "content": "³ª´Â ÇÇÆ¢±â´Â ¾×¼Ç À§ ¹°·¯¼³ ¼ö ¾ø´Â \"´ëÀå±º\" vs ¸ğÇè°ú ³¶¸¸À» ²Ş²Ù´Â ºñÆ® À§ÀÇ \"³ª±×³×\""
+    {
+        "model": "movies.question",
+        "pk": 1,
+        "fields": {
+            "content": "ë‚˜ëŠ” í”¼íŠ€ê¸°ëŠ” ì•¡ì…˜ ìœ„ ë¬¼ëŸ¬ì„¤ ìˆ˜ ì—†ëŠ” \"ëŒ€ì¥êµ°\" vs ëª¨í—˜ê³¼ ë‚­ë§Œì„ ê¿ˆê¾¸ëŠ” ë¹„íŠ¸ ìœ„ì˜ \"ë‚˜ê·¸ë„¤\""
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 2,
+        "fields": {
+            "content": "ì•„ë“œë ˆë‚ ë¦° ë¿œ!ë¿œ! ì›ê±°ë¦¬ ì¹´ì´íŒ… vs ë•€ë‚´ ê°€ë“í•œ ì§„ì •í•œ ëŒ€ì¥êµ° ê·¼ê±°ë¦¬ì˜ ì‹¸ì›€"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 3,
+        "fields": {
+            "content": "ì•½í•´ë³´ì´ì§€ë§Œ ë‚œ ë‹¤ë¥´ë‹¤ \"ë¹„ê±´\"ë§¹ìˆ˜ì¸ ë‚˜ vs  ì°¬ë¯¸í•˜ë¼ ìˆœìˆ˜ í˜ˆí†µ í—Œì‹ ì ì¸ ë‚˜"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 4,
+        "fields": {
+            "content": "ë¬µì§í•œ í•œë°©! ê°•ë ¥í•œ í•œë°©! vs ìŠ¤íƒ€ì¼ë¦¬ì‰¬í•œ í”Œë ˆì´ì˜ ëŒ€ê°€"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 5,
+        "fields": {
+            "content": "ì „ì¥ì„ íœ˜ì “ëŠ” í”¼ë“ëŠ” ì§€ë°°ì  vs ì „ì¥ì„ íŒŒì•…í•˜ê³  ì„¤ê³„í•˜ëŠ” ë°±ì „ë…¸ì¥"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 6,
+        "fields": {
+            "content": "í‹°í‚¤íƒ€ì¹´, í˜¼ìì„  ì•„ë¬´ê²ƒë„ í• ìˆ˜ì—†ì–´ vs ë™ë£ŒëŠ” ê·€ì°®ì•„, ë‚œ ë‚´ \"ë©‹\"ëŒ€ë¡œ"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 7,
+        "fields": {
+            "content": "Spotlight ê°€ ë°›ê³ ì‹¶ì€ ë‚˜ vs ë¬µë¬µíˆ ìºë¦¬í•˜ê³  ìˆëŠ” ëª…í’ˆ ì¡°ì—°"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 8,
+        "fields": {
+            "content": "ì „ìŸì„ ì‹œì‘í•˜ëŠ” í•œë°©! vs ì „ìŸì„ ë§ˆë¬´ë¦¬ í•œë°©!"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 9,
+        "fields": {
+            "content": "ìš°ì›”í•œ ì‚¬ê±°ë¦¬ë¥¼ í™œìš©í•œ ì•ˆì •ì ì¸ í”Œë ˆì´ vs í™˜ìƒì ì¸ í¬ì§€ì…”ë‹ì„ í™œìš©í•œ í­ë”œ"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 10,
+        "fields": {
+            "content": "ë³´ì´ì§€ ì•ŠëŠ” ê²€ì´ ê°€ì¥ ë¬´ì„œìš´ ë²• vs ì´ ê²€ì€ ë‹¹ì‹ ì˜ ê²ƒì´ì˜¤"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 11,
+        "fields": {
+            "content": "ê²Œì„ì„ ì„¤ê³„í•˜ëŠ” ë‘ë‡ŒíŒŒ  vs ê²Œì„ì„ í’€ì–´ë‚´ëŠ” ìœ¡ì²´íŒŒ"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 12,
+        "fields": {
+            "content": "ë‚´ê°€ ì£¼ì¸ê³µì´ë¼ë©´ ë¹›ë‚˜ì§€ ì•Šì•„ë„ ì¢‹ì•„ vs ë¬´ì¡°ê±´ ë‚´ê°€ ë¹›ë‚˜ì•¼ë˜!"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 13,
+        "fields": {
+            "content": "ë¯¿ì„ ê±´ ë‚˜ë¿ ë‚˜ë¹¼ê³ ëŠ” ë‹¤ ì  vs ê·€ì°®ì§€ë§Œ... \"íŒ€\"...ì´ë‹ˆê¹Œ..."
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 14,
+        "fields": {
+            "content": "í™˜ìƒì ì¸ ì´ë‹ˆì‹œ ë‚´ê°€ ì£¼ì¸ê³µ! vs ë‚´ê°€ ì„ íƒí•œ ìê°€ ë‚˜ì˜ ì£¼ì¸"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 15,
+        "fields": {
+            "content": "ê²Œì„í• ë•Œ ì´ìœ ì½”ë”” vs í•´ê´´ë§ì¸¡í•œ ì½”ë””"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 16,
+        "fields": {
+            "content": "ì„±ëŠ¥ì£¼ì˜ ë¹„ì›ë”œ vs ê³§ì£½ì–´ë„ ìˆœí˜ˆíŒŒ!"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 17,
+        "fields": {
+            "content": "ì¸íŒŒì´í„°í˜• ì›ë”œ vs ì¹´ì´íŒ…í˜• ì›ë”œ"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 18,
+        "fields": {
+            "content": "ìˆœìˆ˜í˜ˆí†µ í¬í‚¹! vs ìˆœìˆ˜í˜ˆí†µ ì¹˜ëª…!"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 19,
+        "fields": {
+            "content": "ì „ì¥ì„ ë¶€ë¦¬ëŠ” ì§€ë°°ì vs ì „ì¥ì„ ëˆ„ë¹„ëŠ” ì§€ë°°ì"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 20,
+        "fields": {
+            "content": "í•œì¹˜ ì•ë„ ë³´ì´ì§€ ì•ŠëŠ” ì–´ë‘  vs ê´‘í™œí•˜ê³  ì˜ˆì¸¡ë¶ˆê°€í•œ ë°€ë¦¼"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 21,
+        "fields": {
+            "content": "í”¼ì™€ ì‚´ìœ¡ ìœ„ì— ì“°ì—¬ì§„ ì „ì„¤ vs í”¼ì™€ ì‚´ìœ¡ ìœ„ì— ì“°ì—¬ì§„ ëª…ì˜ˆ"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 22,
+        "fields": {
+            "content": "ë‹¤ì¬ë‹¤ëŠ¥ ìœ¡ê°í˜• vs ì „íˆ¬íŠ¹ì„± íŠ¹í™”í˜•"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 23,
+        "fields": {
+            "content": "ì „ì¥ì„ ì§€íœ˜í•˜ëŠ” ì vs ì „ì¥ì„ íœ˜ì “ëŠ” ì"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 24,
+        "fields": {
+            "content": "ê¸°ìŠµì˜ ëŒ€ê°€ vs ê²°íˆ¬ì˜ ëŒ€ê°€"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 25,
+        "fields": {
+            "content": "í•œë°©ì— íŒ¡! í„°ì§€ëŠ” ìŠˆí¼í”Œë ˆì´ vs ê·¹ê°•ì˜ ì¹´ì´íŒ…!"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 26,
+        "fields": {
+            "content": "íˆíŠ¸ì•¤ëŸ° ë¹ ë¥¸ í”Œë ˆì´ì˜ ë²Œì²˜ vs ë¬´ì§€ì„± ì§‘ì¤‘í¬ê²© ìºë¦¬ì–´"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 27,
+        "fields": {
+            "content": "ì „ìŸì˜ ì‹œì‘ì„ ì•Œë¦¬ëŠ” ë‚˜ vs ì „ìŸì„ ë§ˆë¬´ë¦¬í•˜ëŠ” ë‚˜"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 28,
+        "fields": {
+            "content": "ì•¼ì„±ì ì¸ ì‚¬ê³  vs ì´ì„±ì ì¸ ì‚¬ê³ "
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 29,
+        "fields": {
+            "content": "ë‚   ë”°ë¼ ì˜¤ì„¸ìš”! vs ê¸ˆë°© ê°€ìš”~"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 30,
+        "fields": {
+            "content": "ì•„ë¬´ë¦¬ ë¹„ì‹¸ë„ êµ­ì‚°! / ê°€ì„±ë¹„ ì¤‘êµ­ì‚°"
+        }
+    },
+    {
+        "model": "movies.question",
+        "pk": 31,
+        "fields": {
+            "content": "ë‚˜ë¬´ ë„ë° ì—†ëŠ”í”Œë ˆì´ vs ë‚œë¬´ í•˜ëŠ” í”Œë ˆì´"
+        }
     }
-},
-{
-    "model": "movies.question",
-    "pk": 2,
-    "fields": {
-        "content": "¾Æµå·¹³¯¸° »Õ!»Õ! ¿ø°Å¸® Ä«ÀÌÆÃ vs ¶¡³» °¡µæÇÑ ÁøÁ¤ÇÑ ´ëÀå±º ±Ù°Å¸®ÀÇ ½Î¿ò"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 3,
-    "fields": {
-        "content": "¾àÇØº¸ÀÌÁö¸¸ ³­ ´Ù¸£´Ù \"ºñ°Ç\"¸Í¼öÀÎ ³ª vs  Âù¹ÌÇÏ¶ó ¼ø¼ö Ç÷Åë Çå½ÅÀûÀÎ ³ª"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 4,
-    "fields": {
-        "content": "¹¬Á÷ÇÑ ÇÑ¹æ! °­·ÂÇÑ ÇÑ¹æ! vs ½ºÅ¸ÀÏ¸®½¬ÇÑ ÇÃ·¹ÀÌÀÇ ´ë°¡"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 5,
-    "fields": {
-        "content": "ÀüÀåÀ» ÈÖÁ£´Â ÇÇ²ú´Â Áö¹èÀÚ  vs ÀüÀåÀ» ÆÄ¾ÇÇÏ°í ¼³°èÇÏ´Â ¹éÀü³ëÀå"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 6,
-    "fields": {
-        "content": "Æ¼Å°Å¸Ä«, È¥ÀÚ¼± ¾Æ¹«°Íµµ ÇÒ¼ö¾ø¾î vs µ¿·á´Â ±ÍÂú¾Æ, ³­ ³» \"¸Ú\"´ë·Î"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 7,
-    "fields": {
-        "content": "Spotlight °¡ ¹Ş°í½ÍÀº ³ª vs ¹¬¹¬È÷ Ä³¸®ÇÏ°í ÀÖ´Â ¸íÇ° Á¶¿¬"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 8,
-    "fields": {
-        "content": "ÀüÀïÀ» ½ÃÀÛÇÏ´Â ÇÑ¹æ! vs ÀüÀïÀ» ¸¶¹«¸® ÇÑ¹æ!"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 9,
-    "fields": {
-        "content": "¿ì¿ùÇÑ »ç°Å¸®¸¦ È°¿ëÇÑ ¾ÈÁ¤ÀûÀÎ ÇÃ·¹ÀÌ vs È¯»óÀûÀÎ Æ÷Áö¼Å´×À» È°¿ëÇÑ Æøµô"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 10,
-    "fields": {
-        "content": "º¸ÀÌÁö ¾Ê´Â °ËÀÌ °¡Àå ¹«¼­¿î ¹ı vs ÀÌ °ËÀº ´ç½ÅÀÇ °ÍÀÌ¿À"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 11,
-    "fields": {
-        "content": "°ÔÀÓÀ» ¼³°èÇÏ´Â µÎ³úÆÄ  vs °ÔÀÓÀ» Ç®¾î³»´Â À°Ã¼ÆÄ"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 12,
-    "fields": {
-        "content": "³»°¡ ÁÖÀÎ°øÀÌ¶ó¸é ºû³ªÁö ¾Ê¾Æµµ ÁÁ¾Æ vs ¹«Á¶°Ç ³»°¡ ºû³ª¾ßµÇ!"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 13,
-    "fields": {
-        "content": "¹ÏÀ» °Ç ³ª»Ó ³ª»©°í´Â ´Ù Àû vs ±ÍÂúÁö¸¸... \"ÆÀ\"...ÀÌ´Ï±î..."
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 14,
-    "fields": {
-        "content": "È¯»óÀûÀÎ ÀÌ´Ï½Ã ³»°¡ ÁÖÀÎ°ø! vs ³»°¡ ¼±ÅÃÇÑ ÀÚ°¡ ³ªÀÇ ÁÖÀÎ"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 15,
-    "fields": {
-        "content": "°ÔÀÓÇÒ¶§ ÀÌ»Û ÄÚµğ vs ÇØ±«¸ÁÃøÇÑ ÄÚµğ"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 16,
-    "fields": {
-        "content": "¼º´ÉÁÖÀÇ ºñ¿øµô vs °ğÁ×¾îµµ ¼øÇ÷ÆÄ!"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 17,
-    "fields": {
-        "content": "ÀÎÆÄÀÌÅÍÇü ¿øµô vs Ä«ÀÌÆÃÇü ¿øµô"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 18,
-    "fields": {
-        "content": "¼ø¼öÇ÷Åë Æ÷Å·! vs ¼ø¼öÇ÷Åë Ä¡¸í!"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 19,
-    "fields": {
-        "content": "ÀüÀåÀ» ºÎ¸®´Â Áö¹èÀÚ vs ÀüÀåÀ» ´©ºñ´Â Áö¹èÀÚ"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 20,
-    "fields": {
-        "content": "ÇÑÄ¡ ¾Õµµ º¸ÀÌÁö ¾Ê´Â ¾îµÒ vs ±¤È°ÇÏ°í ¿¹ÃøºÒ°¡ÇÑ ¹Ğ¸²"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 21,
-    "fields": {
-        "content": "ÇÇ¿Í »ìÀ° À§¿¡ ¾²¿©Áø Àü¼³ vs ÇÇ¿Í »ìÀ° À§¿¡ ¾²¿©Áø ¸í¿¹"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 22,
-    "fields": {
-        "content": "´ÙÀç´Ù´É À°°¢Çü vs ÀüÅõÆ¯¼º Æ¯È­Çü"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 23,
-    "fields": {
-        "content": "ÀüÀåÀ» ÁöÈÖÇÏ´Â ÀÚ vs ÀüÀåÀ» ÈÖÁ£´Â ÀÚ"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 24,
-    "fields": {
-        "content": "±â½ÀÀÇ ´ë°¡ vs °áÅõÀÇ ´ë°¡"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 25,
-    "fields": {
-        "content": "ÇÑ¹æ¿¡ ÆÎ! ÅÍÁö´Â ½´ÆÛÇÃ·¹ÀÌ vs ±Ø°­ÀÇ Ä«ÀÌÆÃ!"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 26,
-    "fields": {
-        "content": "È÷Æ®¾Ø·± ºü¸¥ ÇÃ·¹ÀÌÀÇ ¹úÃ³ vs ¹«Áö¼º ÁıÁßÆ÷°İ Ä³¸®¾î"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 27,
-    "fields": {
-        "content": "ÀüÀïÀÇ ½ÃÀÛÀ» ¾Ë¸®´Â ³ª vs ÀüÀïÀ» ¸¶¹«¸®ÇÏ´Â ³ª"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 28,
-    "fields": {
-        "content": "¾ß¼ºÀûÀÎ »ç°í vs ÀÌ¼ºÀûÀÎ »ç°í"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 29,
-    "fields": {
-        "content": "³¯  µû¶ó ¿À¼¼¿ä! vs ±İ¹æ °¡¿ä~"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 30,
-    "fields": {
-        "content": "¾Æ¹«¸® ºñ½Îµµ ±¹»ê! / °¡¼ººñ Áß±¹»ê"
-    }
-},
-{
-    "model": "movies.question",
-    "pk": 31,
-    "fields": {
-        "content": "³ª¹« ¶öµ¥ ¾ø´ÂÇÃ·¹ÀÌ vs ³­¹« ÇÏ´Â ÇÃ·¹ÀÌ"
-    }
-}
-]
+    ]
+    
