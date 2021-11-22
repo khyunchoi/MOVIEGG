@@ -1,19 +1,74 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+  .search-content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+  }
+
+  .search-box {
+    background-color: white;
+    width: 700px;
+    margin: 20px 0;
+    border-radius: 5px;
+  }
+
+  .search-movie-content {
+    display: flex;
+    border-bottom: 1px solid #C5CBD0;
+    height: 140px;
+    padding: 10px;
+  }
+</style>
+{% endblock style %}
+
 {% block content %}
-{% for movie in movies %}
-  <a href="{% url 'movies:movie_detail' movie.pk %}">
-    {{ movie.title }}
-  </a>
-{% endfor %}
-{% for review in reviews %}
-  <a href="{% url 'articles:review_detail' review.pk %}">
-    {{ review.title }}
-  </a>
-{% endfor %}
-{% for freeboard in freeboards %}
-  <a href="{% url 'articles:freeboard_detail' freeboard.pk %}">
-    {{ freeboard.title }}
-  </a>
-{% endfor %}
+<div class="search-content">
+  <div class="search-box">
+    <div style="border-bottom: 1px solid #C5CBD0;">
+      영화목록
+    </div>
+    {% for movie in movies %}
+      <div class="search-movie-content">
+        <a href="{% url 'movies:movie_detail' movie.pk %}">
+          <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ movie.poster_path }}" alt="포스터" style="height: 100%;">
+        </a>
+        <div style="display: flex; flex-flow: column; margin-left: 20px;">
+          <a href="{% url 'movies:movie_detail' movie.pk %}" style="text-decoration: none; color: #484848; font-size: 28px">
+            {{ movie.title }}
+          </a>
+          <div style="color: #484848; font-size: 14px; margin-top: 10px;">
+            {{ movie.plot|slice:":100" }}...
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="search-box">
+    <div style="border-bottom: 1px solid #C5CBD0;">
+      리뷰게시판
+    </div>
+    {% for review in reviews %}
+      <div>
+        <a href="{% url 'articles:review_detail' review.pk %}">
+          {{ review.title }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="search-box">
+    <div style="border-bottom: 1px solid #C5CBD0;">
+      자유게시판
+    </div>
+    {% for freeboard in freeboards %}
+      <div>
+        <a href="{% url 'articles:freeboard_detail' freeboard.pk %}">
+          {{ freeboard.title }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
 {% endblock content %}
