@@ -32,6 +32,33 @@
   grid-row: 2 / 5;
 }
 
+.articles-content {
+  height: 1000px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.articles-content-box {
+  height: 700px;
+  width: 90%;
+  background-color: white;
+}
+
+.articles-content-table {
+  width: 100%;
+  height: 85%;
+}
+
+.articles-table-center {
+  text-align: center;
+}
+
+tr {
+  border-bottom: 1px solid #C5CBD0;
+  height: 60px;
+}
 </style>
 {% endblock style %}
 
@@ -73,9 +100,6 @@
       <a class="btn mt-3 mb-1 mx-3 text-black border-bottom border-4" href="{% url 'accounts:profile_freeboard' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>자유게시판</strong></a>
     </div>
 
-      {% for freeboard in request.user.freeboard_set.all %}
-        {{ freeboard.title }}
-      {% endfor %}
     <div class="articles-content">
       <div class="articles-content-box">
         <table class="articles-content-table border-collapse: collapse;">
@@ -86,9 +110,6 @@
               </th>
               <th class="articles-table-center" style="width:45%">
                 <span>제목</span>
-              </th>
-              <th class="articles-table-center" style="width:10%">
-                <span>글쓴이</span>
               </th>
               <th class="articles-table-center" style="width:15%">
                 <span>등록일</span>
@@ -102,7 +123,7 @@
             </tr>
           </thead>
           <tbody>
-            {% for freeboard in page_obj %}
+            {% for freeboard in request.user.freeboard_set.all %}
               <tr>
                 <td class="articles-table-center">
                   <span>{{ freeboard.pk }}</span>
@@ -117,9 +138,6 @@
                       {% endif %}
                     </div>
                   </a>
-                </td>
-                <td>
-                  <span style="margin: 0 20px;">{{ freeboard.user.nickname }}</span>
                 </td>
                 <td class="articles-table-center">
                   <span>{{ freeboard.created_at.date.year }}-{{ freeboard.created_at.date.month }}-{{ freeboard.created_at.date.day }}</span>
@@ -177,11 +195,13 @@
   
   <div class="three">
     <h1>나에게 달린 최근 댓글 모음</h1>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
+    {% for freeboard in request.user.freeboard_set.all %}
+      {% for comment in freeboard.freecomment_set.all %}
+        <div class="d-flex my-4">
+          {{ comment.user.nickname }} {{ comment.content }}
+        </div>
+      {% endfor %}
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}
