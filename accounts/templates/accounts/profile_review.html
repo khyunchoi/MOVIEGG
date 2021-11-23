@@ -83,11 +83,13 @@
   
   <div class="three">
     <h1>나에게 달린 최근 댓글 모음</h1>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
+    {% for review in request.user.review_set.all %}
+      {% for comment in review.reviewcomment_set.all %}
+        <div class="d-flex my-4">
+          {{ comment.user.nickname }} {{ comment.content }}
+        </div>
+      {% endfor %}
+    {% endfor %}
   </div>
 </div>
 {% endblock content %}

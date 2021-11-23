@@ -80,7 +80,7 @@
     <li class="nav-item dropdown">
       {% if user.profile_image %}
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #FFFFFF; padding: 0 10px;">
-          <img src="{{ person.profile_image.url }}" alt="" class="nav_img">
+          <img src="{{ request.user.profile_image.url }}" alt="" class="nav_img">
           {{ request.user.username }}님 환영합니다.
         </a>
       {% else %}
