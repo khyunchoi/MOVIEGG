@@ -8,7 +8,7 @@ from movies.models import Movie
 class Review(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
-    grade = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(5)])
+    grade = models.IntegerField(validators=[MinValueValidator(0), MaxValueValidator(10)])
     hit = models.PositiveIntegerField(default=0) # 조회수
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

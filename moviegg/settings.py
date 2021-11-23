@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google',
     'allauth.socialaccount.providers.kakao',
     'allauth.socialaccount.providers.naver',
+    'mathfilters',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE = [

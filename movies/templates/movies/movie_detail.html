@@ -1,38 +1,101 @@
 {% extends 'base.html' %}
+{% load mathfilters %}
+
+{% block style %}
+<style>
+  .nav-index {
+    background-color: #4285F4;
+  }
+
+  .movie-detail-content {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 30px;
+  }
+
+  .movie-detail-movie {
+    display: flex;
+    margin: 30px;
+    width: 90%;
+  }
+
+  .movie-detail-review {
+    width: 90%;
+    margin-top: 10px;
+  }
+</style>
+{% endblock style %}
 
 {% block content %}
-{{ movie.title }}
-<br>
-<img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
-<br>
-{{ movie.release_date }}
-<br>
-{{ movie.director }}
-<br>
-{{ movie.showtime }}
-<br>
-{{ movie.plot}}
-{% for actor in movie.movie_actor.all %}
-  {{ actor.name }}
-  <br>
-{% endfor %}
-<br>
-{% for genre in movie.genre.all %}
-  {{ genre.name }}
-  <br>
-{% endfor %}
-평점: {{ movie.vote_average }}
-<br>
-
-<a href="{% url 'articles:review_create' movie.pk %}">
-  리뷰쓰기
-</a>
-
-<hr>
-관련 리뷰
-{% for review in movie.review_set.all %}
-  <a href="{% url 'articles:review_detail' review.pk %}">
-    {{ review.title }}
-  </a>
-{% endfor %}
+<div class="movie-detail-content">
+  <div class="movie-detail-movie">
+    <div style="margin-right: 50px;">
+      <img style="border-radius: 15px;" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
+    </div>
+    <div style="border: 2px solid #D0C7C7; border-radius: 15px; padding: 10px; margin-left: 50px; display: flex; flex-flow: column; color: #484848;">
+      <div style="font-size: 32px; font-weight: bold; margin: 5px 0;">
+        {{ movie.title }}
+      </div>
+      <div style="margin: 5px 0;">
+        개봉일: {{ movie.release_date }}
+      </div>
+      <div style="margin: 5px 0;">
+        감독: {{ movie.director }}
+      </div>
+      <div style="margin: 5px 0;">
+        주연: 
+        {% for actor in movie.movie_actor.all %}
+          {{ actor.name }} 
+        {% endfor %}
+      </div>
+      <div style="margin: 5px 0;">
+        상영 시간: {{ movie.showtime }}분
+      </div>
+      <div style="margin: 5px 0; overflow: hidden; max-height: 144px;">
+        줄거리: {{ movie.plot}}
+      </div>
+      <div style="margin: 5px 0;">
+        장르: 
+        {% for genre in movie.genre.all %}
+          {{ genre.name }}
+        {% endfor %}
+      </div>
+      <div style="margin: 5px 0;">
+        평점: {{ movie.vote_average }}
+      </div>
+    </div>
+  </div>
+  <div class="movie-detail-review">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #D0C7C7; padding-bottom: 10px;">
+      <div style="font-size:24px; font-weight: bold; color: #484848;">
+        관련 리뷰
+      </div>
+      {% if request.user.exp >= 500 %}
+        <a class="btn" href="{% url 'articles:review_create' movie.pk %}" style="background-color: #4285F4; text-decoration: none; color: white; padding: 3px 6px;">
+          리뷰쓰기
+        </a>
+      {% else %}
+        <a class="btn disabled" href="{% url 'articles:review_create' movie.pk %}" style="background-color: #4285F4; text-decoration: none; color: white; padding: 3px 6px;">
+          리뷰쓰기
+        </a>
+      {% endif %}
+    </div>
+    <div style="border: 2px solid #D0C7C7; border-radius: 5px; margin: 20px 0; min-height: 200px;">
+      {% for review in movie.review_set.all %}
+        <div style="border: 1px solid #D0C7C7; border-radius: 5px; margin: 10px; padding: 3px; display: flex;">
+          <div style="color: #5B835F; margin: 0 10px;">
+            {{ review.user.nickname|slice:":4" }}
+          </div>
+          <div style="font-size: 12px; display: flex; align-items: end; margin-right: 20px;">
+            LV.{{ review.user.exp|intdiv:100 }}            
+          </div>
+          <a href="{% url 'articles:review_detail' review.pk %}" style="text-decoration: none; color: #DB2F2F;">
+            {{ review.title|slice:":35" }}
+          </a>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
 {% endblock content %}
