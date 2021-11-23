@@ -93,7 +93,7 @@
         </a>
       {% endif %}
       <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-        <li><a class="dropdown-item" href="{% url 'accounts:profile' request.user.pk %}">프로필</a></li>
+        <li><a class="dropdown-item" href="{% url 'accounts:profile_review' request.user.pk %}">프로필</a></li>
         <li><a class="dropdown-item" href="{% url 'accounts:password_change' %}">비밀번호변경</a></li>
         <li><a class="dropdown-item" href="{% url 'accounts:update' %}">개인정보변경</a></li>
         <form action="{% url 'accounts:logout' %}" method="POST">
