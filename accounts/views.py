@@ -92,10 +92,21 @@ def practice(request):
 
 
 @login_required
-def profile(request, user_pk):
+def profile_review(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
 
     context = {
         'person': person,
     }
-    return render(request, 'accounts/profile.html', context)
+    return render(request, 'accounts/profile_review.html', context)
+
+    
+@login_required
+def profile_freeboard(request, user_pk):
+    person = get_object_or_404(get_user_model(), pk=user_pk)
+
+    context = {
+        'person': person,
+    }
+    return render(request, 'accounts/profile_freeboard.html', context)
+
