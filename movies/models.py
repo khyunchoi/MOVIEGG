@@ -4,6 +4,9 @@ from django.db import models
 class Genre(models.Model):
     name = models.CharField(max_length=30)
     genre_num = models.IntegerField()
+
+    def __str__(self):
+        return self.name
     
 
 
@@ -31,7 +34,8 @@ class BoxofficeMovie(models.Model):
 
 class Character(models.Model):
     name = models.CharField(max_length=20)
-    number = models.IntegerField()
+    character_number = models.IntegerField()
+    eng_name = models.CharField(max_length=20)
     genre = models.ManyToManyField(Genre, related_name='character_genre')
 
 

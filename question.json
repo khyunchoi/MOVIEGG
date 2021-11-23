@@ -206,7 +206,7 @@
         "model": "movies.question",
         "pk": 30,
         "fields": {
-            "content": "아무리 비싸도 국산! / 가성비 중국산"
+            "content": "아무리 비싸도 국산! vs 가성비 중국산"
         }
     },
     {

@@ -2,12 +2,15 @@ import json
 import time
 from django.conf.urls import url
 from django.http.request import QueryDict
+from django.http.response import JsonResponse
+from selenium import webdriver
 import requests
 from bs4 import BeautifulSoup
-from .models import BoxofficeMovie, Character, Genre, Movie, Actor
+from .models import BoxofficeMovie, Character, Genre, Movie, Actor, Question
 from django.shortcuts import render
 from django.forms.models import model_to_dict
 from ast import literal_eval
+from django.db.models import Q
 
 # Create your views here.
 def movie_detail(request, movie_pk):
@@ -54,6 +57,7 @@ def load(request):
             html = response.text
             soup = BeautifulSoup(html, 'html.parser')
             imgsrc.append(str(soup.select_one('#mainContent > div > div.box_boxoffice > ol > li:nth-child(1) > div > div.thumb_item > div.poster_movie > img')))
+            
         else: 
             print(response.status_code)
 
@@ -65,11 +69,11 @@ def load(request):
     #  similler api이용
 
     #로그인 안했을 경우
-    movies = Movie.objects.all().order_by('vote_average')
+    movies = Movie.objects.all().order_by('-vote_average')
     recimg = []
     for k in range(3) :
         recimg.append(movies[k].poster_path)
-    print(recimg)
+    
 
      
     movies = list(BoxofficeMovie.objects.values())
@@ -183,6 +187,7 @@ def movieupdate(request):
     
     return render(request, 'movies/update.html', context)
 
+
 def genreupdate(request):
     url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR'
     res = requests.get(url)
@@ -210,13 +215,15 @@ def genreupdate(request):
     return render(request, 'movies/genreupdate.html' , context)
 
 def leagueoflegend(request):
+    
     with open("./leagueofcharacter.json", "r", encoding='UTF8') as json_file:
         json_data = json.loads(json_file.read())
 
         for rec in json_data['character']:
             context ={
-                'number' : rec['character_number'],
-                'name' : rec['name']
+                'character_number' : rec['character_number'],
+                'name' : rec['name'],
+                'eng_name' : rec['eng_name']
             }
             character = Character.objects.get_or_create(**context)
     return render(request, 'movies/temp.html')
@@ -224,6 +231,129 @@ def leagueoflegend(request):
 
 
 
-def lolrecommend(request):
+
+def lol_recommend(request):
     # 질문지 1번을 꺼내올거야~
-    pass
+    questions = list(Question.objects.values())
+    context ={
+        'questions' : questions,
+    }
+    return JsonResponse(context)
+
+    # if i < 32:
+    #     question_a,question_b = questions[i].content.split('vs')
+    #     context = {
+    #         'question_a' : question_a,
+    #         'question_b' : question_b,
+    #         'i' : i,
+    #         'double_i' : i*2,
+    #         'double_extra_i' : i*2+1,
+    #     }
+    
+    #     return render(request, 'movies/lolrec.html', context)
+
+    # else:
+    #     character = Character.objects.get(number=i)
+    #     context = {
+    #         'character': character
+    #     }
+        
+    #     return render(request, 'movies/lolresult.html', context)
+
+
+def lol_reccomend_start(request):
+    return render(request, 'movies/lolrecstart.html')
+
+def lol_result(request, i):
+    character = Character.objects.get(character_number=i)
+    character_genre = character.genre.all()
+    max = 0
+    recolist = []
+    recogenre = []
+    reco_imglist = []
+    reco_imgfinal = {}
+    plz = Movie.objects.filter(genre=19)
+    print(plz)
+    for genre in character_genre:
+        recogenre.append(genre)
+        print(genre)
+        movies = Movie.objects.filter(genre=genre).order_by('-vote_average')
+        
+        # genre_recommend = Movie.objects.filter(genre=genre).order_by('-vote_average')[0:3]
+        if not genre.genre_num == 16:
+            genre_recommend = Movie.objects.filter(genre=genre).order_by('-vote_average').filter(~Q(genre=3))[0:3]
+            print(genre_recommend)
+            if len(genre_recommend) < 3:
+                genre_empty = (Movie.objects.filter(genre=genre).order_by('-vote_average').filter(genre=3)[0:3-len(genre_recommend)])
+                for reco in genre_empty:
+                    recolist.append(reco.movie_code)
+        else:
+            genre_recommend = Movie.objects.filter(genre=genre).order_by('-vote_average')[0:3]
+        if max < movies[0].vote_average:
+            max = movies[0].vote_average
+            movie_one = movies[0]
+        print(genre_recommend)
+        
+        for reco in genre_recommend:
+            recolist.append(reco.movie_code)
+        print(recolist)
+            
+    # 추천 영화를 가져오는 접근!!
+    for reco in recolist:
+        recommend_url = f'https://api.themoviedb.org/3/movie/{reco}?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR'
+        recommend = requests.get(recommend_url)
+        recommend_img = recommend.json()
+        reco_img = recommend_img['poster_path']
+        reco_imglist.append(reco_img)
+    for i in range(3):
+        reco_imgfinal[i] = reco_imglist[i*3:(i+1)*3]
+    reco_image1 = reco_imgfinal[0]
+    reco_image2 = reco_imgfinal[1]
+    reco_image3 = reco_imgfinal[2]
+        
+
+ 
+
+
+
+    
+    
+    # 영화의 overview를 받아오기 위한 접근
+    overview_url = f'https://api.themoviedb.org/3/movie/{movie_one.movie_code}?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR'
+    movie_overviews = requests.get(overview_url)
+    movie_overviews_text = movie_overviews.json()
+
+    movie_overview = movie_overviews_text['overview']
+
+
+    url = f'https://www.leagueoflegends.com/ko-kr/champions/{character.eng_name}'
+    # 롤 홈페이지에서 정보들 가져와!!
+    response = requests.get(url)
+    if response.status_code == 200:
+        html = response.content.decode('utf-8','replace')
+        # html = response.text
+        soup = BeautifulSoup(html, 'html.parser')
+        image = str(soup.select_one('#gatsby-focus-wrapper > div > section.style__Wrapper-sc-8gkpub-30.hvTntU > div.style__SectionInner-sc-8gkpub-3.drSgts > div.style__ForegroundAsset-sc-8gkpub-4.fyyYJz > img'))
+        overview = str(soup.select_one('#gatsby-focus-wrapper > div > section.style__Wrapper-sc-8gkpub-30.hvTntU > div.style__SectionInner-sc-8gkpub-3.drSgts > div.style__Dock-sc-8gkpub-5.eVSOFq > div.style__Info-sc-8gkpub-7.kTzPTF > div.style__Desc-sc-8gkpub-9.efkwqI > p').text)
+        final_overview = overview.replace(str(soup.select_one('#gatsby-focus-wrapper > div > section.style__Wrapper-sc-8gkpub-30.hvTntU > div.style__SectionInner-sc-8gkpub-3.drSgts > div.style__Dock-sc-8gkpub-5.eVSOFq > div.style__Info-sc-8gkpub-7.kTzPTF > div.style__Desc-sc-8gkpub-9.efkwqI > p > button').text),"")
+        thumbnail = str(soup.select_one('#gatsby-focus-wrapper > div > section.style__Wrapper-sc-8gkpub-30.hvTntU > div.style__SectionInner-sc-8gkpub-3.drSgts > div.style__Dock-sc-8gkpub-5.eVSOFq > div.style__Name-sc-8gkpub-6.kajbWl > div > h1 > span > div > span'))
+    else:
+        print(response.status_code)
+    
+    context = {
+        'character' : character,
+        'image' : image,
+        'overview' :final_overview,
+        'thumbnail' :thumbnail,
+        'movie' :movie_one,     
+        'movie_overview' : movie_overview,
+        'recogenre' : recogenre,
+        'raco_image1' :reco_image1,
+        'raco_image2' :reco_image2,
+        'raco_image3' :reco_image3,
+    }
+
+
+
+    
+    return render(request, 'movies/lolresult.html', context)

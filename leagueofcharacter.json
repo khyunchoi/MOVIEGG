@@ -2,133 +2,165 @@
   "character": [
       {
           "character_number": 32,
-          "name": "케넨"
+          "name": "케넨",
+          "eng_name": "kennen"
       },
       {
           "character_number": 33,
-          "name": "진"
+          "name": "진",
+          "eng_name": "jhin"
       },
       {
           "character_number": 34,
-          "name": "그레이브즈"
+          "name": "그레이브즈",
+          "eng_name": "graves"
       },
       {
           "character_number": 35,
-          "name": "미스포츈"
+          "name": "미스 포츈",
+          "eng_name": "miss-fortune"
       },
       {
           "character_number": 40,
-          "name": "녹턴"
+          "name": "녹턴",
+          "eng_name": "nocturne"
       },
       {
           "character_number": 41,
-          "name": "렝가"
+          "name": "렝가",
+          "eng_name": "rengar"
       },
       {
           "character_number": 42,
-          "name": "트린다미어"
+          "name": "트린다미어",
+          "eng_name": "tryndamere"
       },
       {
           "character_number": 43,
-          "name": "자르반"
+          "name": "자르반 4세",
+          "eng_name": "jarvan-iv"
       },
       {
           "character_number": 44,
-          "name": "갱플랭크"
+          "name": "갱플랭크",
+          "eng_name": "gangplank"
       },
       {
           "character_number": 45,
-          "name": "초가스"
+          "name": "초가스",
+          "eng_name": "cho-gath"
       },
         {
           "character_number": 46,
-          "name": "우르곳"
+          "name": "우르곳",
+          "eng_name": "urgot"
       },
       {
           "character_number": 47,
-          "name": "야스오"
+          "name": "야스오",
+          "eng_name": "yasuo"
       },
       {
           "character_number": 37,
-          "name": "케이틀린"
+          "name": "케이틀린",
+          "eng_name": "caitlyn"
       },
       {
           "character_number": 36,
-          "name": "이즈리얼"
+          "name": "이즈리얼",
+          "eng_name": "ezreal"
       },
       {
           "character_number": 38,
-          "name": "자야"
+          "name": "자야",
+          "eng_name": "xayah"
       },
       {
           "character_number": 39,
-          "name": "퀸"
+          "name": "퀸",
+          "eng_name": "quinn"
       },
       {
           "character_number": 50,
-          "name": "애니"
+          "name": "애니",
+          "eng_name": "annie"
       },
       {
           "character_number": 48,
-          "name": "아리"  
+          "name": "아리",
+          "eng_name": "ahri"
       },
       {
           "character_number": 51,
-          "name": "빅토르"
+          "name": "빅토르",
+          "eng_name": "viktor"
       },
       {
         "character_number": 55,
-        "name": "카서스"
+        "name": "카서스",
+        "eng_name": "karthus"
       },
       {
         "character_number": 54,
-        "name": "릴리아"
+        "name": "릴리아",
+        "eng_name": "lillia"
       },
       {
         "character_number": 52,
-        "name": "티모"
+        "name": "티모",
+        "eng_name": "teemo"
       },
       {
         "character_number": 49,
-        "name": "오른"
+        "name": "오른",
+        "eng_name": "ornn"
       },
       {
         "character_number": 53,
-        "name": "하이머딩거"
+        "name": "하이머딩거",
+        "eng_name": "heimerdinger"
       },
       {
         "character_number": 60,
-        "name": "소나"
+        "name": "소나",
+        "eng_name": "sona"
       },
       {
         "character_number": 61,
-        "name": "세라핀"
+        "name": "세라핀",
+        "eng_name": "seraphine"
       },
       {
         "character_number": 58,
-        "name": "라칸"
+        "name": "라칸",
+        "eng_name": "rakan"
       },
       {
         "character_number": 63,
-        "name": "타릭"
+        "name": "타릭",
+        "eng_name": "taric"
       },
       {
         "character_number": 59,
-        "name": "룰루"
+        "name": "룰루",
+        "eng_name": "lulu"
       },
       {
         "character_number": 56,
-        "name": "레오나"
+        "name": "레오나",
+        "eng_name": "leona"
       },
 
       {
         "character_number": 62,
-        "name": "아이번"
+        "name": "아이번",
+        "eng_name": "ivern"
       },
 
       {
         "character_number": 57,
-        "name": "아무무"
+        "name": "아무무",
+        "eng_name": "amumu"
       }
   ]
 }
