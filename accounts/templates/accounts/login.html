@@ -6,15 +6,16 @@
 <br>
 <form action="" method="POST">
   {% csrf_token %}
-  <div class="form-floating mb-3">
+  <div class="form-floating mb-3" style="width: 80%; margin-left: 12%;">
     {{ form.username }}
-    <label for="floatingInput">ID</label>
+    <label for="floatingInput">아이디</label>
   </div>
-  <div class="form-floating">
+  <div class="form-floating mb-3" style="width: 80%; margin-left: 12%;">
     {{ form.password }}
-    <label for="floatingPassword">Password</label>
+    <label for="floatingPassword">비밀번호</label>
   </div>
-  <a class="btn mt-3 mb-1 mx-3 text-black border border-2" href="{% url 'articles:index' %}" role="button" style="background-color: #FFFFFF; width: 40%; height: 45px;"><strong>뒤로가기</strong></a><button type="submit" class="btn mt-3 mb-1 text-white" style="background-color: #1EA1F7; width: 40%; height: 45px;"><strong>로그인</strong></button>
+  <a class="btn mt-3 mb-1 mx-3 text-black border border-2" href="{% url 'articles:index' %}" role="button" style="background-color: #FFFFFF; width: 35%; height: 45px;"><strong>뒤로가기</strong></a>
+  <button type="submit" class="btn mt-3 mb-1 text-white" style="background-color: #1EA1F7; width: 35%; height: 45px;"><strong>로그인</strong></button>
 </form>
 <br>
 <br>

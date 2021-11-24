@@ -1,11 +1,29 @@
 {% extends 'accounts/base.html' %}
 
 {% block content %}
-<br>
-<form action="" method="POST" enctype="multipart/form-data"> 
+
+<div class="d-flex justify-content-center mb-5" style="overflow: hidden;">
+  {% if user.profile_image %}
+    <img src="{{ user.profile_image.url }}" alt="프로필 이미지" style="height: 40%; width: 40%;">
+  {% else %}
+    <svg xmlns="http://www.w3.org/2000/svg" width="40%" height="40%" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+      <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+      <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+    </svg>
+  {% endif %}
+</div>
+<form action="{% url 'accounts:update' %}" method="POST" enctype="multipart/form-data">
   {% csrf_token %}
-  {{ form.as_p }}
-  <a class="btn mt-3 mb-1 mx-3 text-black border border-2" href="{% url 'articles:index' %}" role="button" style="background-color: #FFFFFF; width: 40%; height: 45px;"><strong>뒤로가기</strong></a><button type="submit" class="btn mt-3 mb-1 text-white" style="background-color: #1EA1F7; width: 40%; height: 45px;"><strong>개인정보 변경</strong></button>
+  <div class="mb-3" style="width: 80%; margin-left: 12%;">
+    <label for="formFile" class="form-label">프로필 이미지 업로드</label>
+    <input class="form-control" type="file" name="profile_image" accept="image/*"  id="formFile">
+  </div>
+  <div class="form-floating" style="width: 80%; margin-left: 12%;">
+    {{ form.nickname }}
+    <label for="floatingNickname">닉네임</label>
+  </div>
+  <a class="btn mt-3 mb-1 mx-3 text-black border border-2" href="{% url 'articles:index' %}" role="button" style="background-color: #FFFFFF; width: 35%; height: 45px;"><strong>뒤로가기</strong></a>
+  <button type="submit" class="btn mt-3 mb-1 text-white" style="background-color: #1EA1F7; width: 35%; height: 45px;"><strong>개인정보 변경</strong></button>
 </form>
 <br>
 <br>
