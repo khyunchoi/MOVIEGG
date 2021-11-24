@@ -1,9 +1,59 @@
 {% extends 'base.html' %}
 
+{% block style %}
+<style>
+  html, body {
+    height: 100%;
+  }
+  .nav-freeboard {
+    background-color: #4285F4;
+  }
+
+  .freeboard-title {
+    width: 100%;
+  }
+
+  .freeboard-content {
+    width: 100%;
+    height: 100%;
+  }
+
+  .freeboard-create-form {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    margin: 30px 0;
+    width: 40%;
+  }
+</style>
+{% endblock style %}
+
 {% block content %}
-<form action="" method="POST" enctype="multipart/form-data">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button>작성</button>
-</form>
+<div style="display: flex; justify-content: center; width: 100%; height: 70%;">
+  <form action="" method="POST" enctype="multipart/form-data" class="freeboard-create-form">
+    {% csrf_token %}
+    <div style="background-color: white; width: 100%; height: 100%; display: flex; flex-flow: column; align-items: center; justify-content: space-between;">
+      <div style="width: 100%; height: 100%; display: flex; flex-flow: column; align-items: center;">
+        <div style="margin: 10px 20px; font-weight: bold; color: #484848; align-self: flex-start;">
+          수정하기
+        </div>
+      
+        <div style="width: 95%; margin: 10px 0;">
+          {{ form.title }}
+        </div>
+        <div style="width: 95%; height: 70%; margin-top: 5px;">
+          {{ form.content }}
+        </div>
+        <div style="width: 95%; margin: 10px;">
+          <label for="formFile" class="form-label">이미지 업로드</label>
+          <input class="form-control" type="file" name="image" accept="image/*" id="formFile">
+        </div>
+      </div>
+      <div style="display: flex; justify-content: space-between; justify-self: self-end; width: 95%; margin: 10px 0;">
+        <a class="btn" style="background-color: #F1F1F1; color: #484848; width: 100px;" href="{% url 'articles:freeboard' %}">취소</a>
+        <button class="btn" style="background-color: #4285F4; color: white; width: 100px;">작성</button>
+      </div>
+    </div>
+  </form>
+</div>
 {% endblock content %}

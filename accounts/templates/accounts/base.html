@@ -22,13 +22,16 @@
 <body>
   <div class="d-flex justify-content-center align-items-center" style="height: 100%;">
       <div class="card" style="width: 30rem;">
-          <div class="card-body">
-            <h1 class="card-title" style="text-align: center;"><strong>MOVIE.GG</strong></h1>
-              <div class="text-center">
-                {% block content %}
-                {% endblock content %}      
-              </div>
+        <div class="card-body">
+          {% load static %}
+          <div class="d-flex justify-content-center justify-align-center">
+            <img src="{% static 'moviegg.png' %}" alt="logo" style="height: 150px; width: 250px;">
           </div>
+            <div class="text-center">
+              {% block content %}
+              {% endblock content %}      
+            </div>
+        </div>
       </div>
   </div>
 

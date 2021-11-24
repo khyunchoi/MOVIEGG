@@ -5,7 +5,6 @@ from django.contrib.auth import logout as auth_logout
 from django.views.decorators.http import require_http_methods, require_POST
 from django.contrib.auth.decorators import login_required
 from .forms import CustomUserCreationForm, CustomUserChangeForm, CustomPasswordChangeForm, CustomAuthenticationForm
-from django.core.paginator import Paginator
 from django.contrib.auth.forms import AuthenticationForm
 
 
@@ -93,10 +92,21 @@ def practice(request):
 
 
 @login_required
-def profile(request, user_pk):
+def profile_review(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
 
     context = {
         'person': person,
     }
-    return render(request, 'accounts/profile.html', context)
+    return render(request, 'accounts/profile_review.html', context)
+
+    
+@login_required
+def profile_freeboard(request, user_pk):
+    person = get_object_or_404(get_user_model(), pk=user_pk)
+    
+    context = {
+        'person': person,
+    }
+    return render(request, 'accounts/profile_freeboard.html', context)
+
