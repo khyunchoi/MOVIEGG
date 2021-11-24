@@ -29,6 +29,10 @@
     height: 140px;
     padding: 10px;
   }
+  
+  .search-movie-content:hover{
+    background-color: #f8f9fa;
+  }
 
   .search-review-content {
     border: 1px solid #C5CBD0;
@@ -39,6 +43,14 @@
     margin: 10px;
     padding: 15px;
     display: flex;
+  }
+
+  .search-review-content:hover{
+    background-color: #f8f9fa;
+  }
+
+  .search-freeboard-content:hover{
+    background-color: #f8f9fa;
   }
 
   .js-load {
@@ -56,13 +68,14 @@
   .btn-wrap, .lists, .main {
     display: block;
   }
+
 </style>
 {% endblock style %}
 
 {% block content %}
 <div class="search-content">
   <div class="search-box">
-    <div class="search-box-title">
+    <div class="search-box-title" style="background-color: #F1F1F1;">
       영화목록
     </div>
     <div id="js-load">
@@ -83,7 +96,7 @@
           </li>
         {% endfor %}
       </ul>
-      <div id="js-btn-wrap" class="btn-wrap" style="display: flex; justify-content: center; border-top: 1px solid #C5CBD0;">
+      <div id="js-btn-wrap" class="btn-wrap" style="display: flex; justify-content: center; border: 1px solid #C5CBD0; background-color: #F1F1F1;">
         <a href="javascript:;" class="button" style="text-decoration: none; color: #484848;">
           더보기
         </a>
@@ -91,7 +104,7 @@
     </div>
   </div>
   <div class="search-box">
-    <div class="search-box-title" style="border-bottom: 1px solid #C5CBD0;">
+    <div class="search-box-title" style="border-bottom: 1px solid #C5CBD0; background-color: #F1F1F1;">
       리뷰게시판
     </div>
     {% for review in reviews %}
@@ -119,11 +132,11 @@
     {% endfor %}
   </div>
   <div class="search-box">
-    <div class="search-box-title">
+    <div class="search-box-title" style="background-color: #F1F1F1;">
       자유게시판
     </div>
     {% for freeboard in freeboards %}
-      <div style="display: flex; justify-content: space-between;align-items: center; border-top: 1px solid #C5CBD0; padding: 10px;">
+      <div class="search-freeboard-content" style="display: flex; justify-content: space-between;align-items: center; border-top: 1px solid #C5CBD0; padding: 10px;">
         <div>
           <a href="{% url 'articles:freeboard_detail' freeboard.pk %}" style="text-decoration: none; color: #484848; font-size: 20px; font-weight: bold;">
             {{ freeboard.title }}

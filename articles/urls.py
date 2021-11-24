@@ -8,6 +8,7 @@ urlpatterns = [
 
     # 검색 페이지
     path('search/', views.search, name='search'),
+    path('search/movie', views.search_movie, name='search_movie'),
 
     # 리뷰 게시판
     path('review/', views.review, name='review'),
