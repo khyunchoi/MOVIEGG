@@ -74,8 +74,12 @@ class CustomAuthenticationForm(AuthenticationForm):
         self.fields['username'].widget.attrs.update({
             'class': 'form-control',
             'autofocus': False,
+            'id': 'floatingInput',
+            'placeholder': 'example',
         })
         self.fields['password'].label = '비밀번호'
         self.fields['password'].widget.attrs.update({
             'class': 'form-control',
+            'id': 'floatingPassword',
+            'placeholder': 'Password',
         })
