@@ -322,3 +322,11 @@ def search(request):
         'freeboards': freeboards,
     }
     return render(request, 'articles/search.html', context)
+
+
+@require_safe
+def search_movie(request):
+    context = {
+
+    }
+    return render(request, 'articles/search_movie.html', context)

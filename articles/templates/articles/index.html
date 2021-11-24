@@ -63,12 +63,15 @@
     display: flex;
   }
 
+  .index-review-content:hover {
+    background-color: #f8f9fa;
+  }
+
   .index-review-title {
     text-decoration: none;
     color: #484848;
     font-weight: bold;
   }
-
 </style>
 {% endblock style %}
 
@@ -89,7 +92,9 @@
       <div style="height: calc(100% - 32px);">
         {% for movie in top_movies %}
           <div class="index-review-content" style="padding: 5px;">
-            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ movie.poster_path }}" alt="포스터" style="height: 100%;">
+            <a href="{% url 'movies:movie_detail' movie.pk %}">
+              <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ movie.poster_path }}" alt="포스터" style="height: 100%;">
+            </a>
             <div style="margin-left: 10px; display: flex; align-items: center;">
               <a class="index-review-title" href="{% url 'movies:movie_detail' movie.pk %}">
                 {{ movie.title }}
@@ -106,7 +111,9 @@
       <div style="height: calc(100% - 32px);">
         {% for review in top_reviews %}
           <div class="index-review-content" style="padding: 5px;">
-            <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.1.movie.poster_path }}" alt="포스터" style="height: 100%;">
+            <a href="{% url 'articles:review_detail' review.1.pk %}">
+              <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.1.movie.poster_path }}" alt="포스터" style="height: 100%;">
+            </a>
             <div style="margin-left: 10px; display: flex; align-items: center;">
               <a class="index-review-title" href="{% url 'articles:review_detail' review.1.pk %}">
                 {{ review.1.title }}

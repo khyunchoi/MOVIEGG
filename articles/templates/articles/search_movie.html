@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block style %}
+<style>
+  html, body {
+    height: 100%;
+    background-color: #4285F4;
+  }
+
+  .nav-index {
+    background-color: #4285F4;
+  }
+
+  .index-search-form {
+    background-color: white;
+    padding: 8px;
+    width: 600px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .index-search-input {
+    border: 0px;
+    width: 90%;
+  }
+</style>
+{% endblock style %}
+
+{% block content %}
+<div style="display: flex; justify-content: center; margin-top: 100px;">
+  <form class="index-search-form" action="{% url 'articles:search' %}" method="GET">
+    <input class="index-search-input" type="search" placeholder="리뷰를 작성하려면 먼저 영화를 검색해주세요" aria-label="Search" name="word" value="{{word}}">
+    <button class="btn" type="submit" style="background-color: #08A1F9; color: white; border-radius: 0; font-weight: bold; padding: 3px 6px;">검색</button>
+  </form>
+</div>
+{% endblock content %}

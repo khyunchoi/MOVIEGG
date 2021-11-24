@@ -1,12 +1,38 @@
 from django import forms
 from .models import Review, ReviewComment, FreeBoard, FreeComment
+from .widgets import starWidget
 
 
 class ReviewForm(forms.ModelForm):
 
+    title = forms.CharField(
+        label='',
+        widget=forms.TextInput(
+            attrs={
+                'class': 'review-title',
+                'placeholder': '제목',
+            }
+        ),
+    )
+
+    content = forms.CharField(
+        label='',
+        widget=forms.Textarea(
+            attrs={
+                'class': 'review-content',
+            }
+        ),
+    )
+
     class Meta:
         model = Review
         fields = ['title', 'content', 'grade']
+        widgets = {
+            'grade': starWidget,
+        }
+        labels = {
+            'grade': "평점",
+        }
 
 
 class ReviewCommentForm(forms.ModelForm):
