@@ -13,6 +13,7 @@
   width:60%;
   height:100%;
   border-radius : 15px;
+  box-shadow: 10px 8px 8px #484848;
 }
 
 .divcard {
@@ -32,8 +33,17 @@
   display: none;
 }
 
+.reco_overview {
+  overflow: scroll;
+  
+}
+.reco_overview::-webkit-scrollbar {
+  display: none;
+}
 </style>
 <body style="width:100%;height:100%;">
+{% extends 'base.html' %}
+{% block content %}
 <div class="divcard">
   <div class="d-flex ml-3" style="height:100%; margin:0;">
     <div class="row align-items-center" style="margin-left : 10%; width:90%; height:100%">
@@ -59,11 +69,11 @@
   <h4 style="font-weight:bold; margin-left:1%;">당신에게 딱 맞는 영화</h4>
   <hr style="border: 1px solid black">
   <div class="d-flex" style="height:80%;">
-    <div style="width:70%; padding:70px; background-color:#EDEDED; margin-right: 5% ; border-radius: 5px;">
+    <div class="reco_overview"style="width:70%; padding:60px; background-color:#EDEDED; margin-right: 5% ; border-radius: 5px;">
       {{ movie_overview }}
     </div>
     <div>
-      <img style="width:100%; height:100%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
+      <img style="width:100%; box-shadow: 10px 8px 8px #484848; height:100%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
     </div>
   </div>
 
@@ -73,7 +83,7 @@
   <hr style="border: 1px solid black">
   <div style="margin-left:10%; margin-right:10%; display: flex; justify-content: center;">
   {% for raco1 in raco_image1  %}
-    <img class="mx-5"style="width:32%; height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco1}}" alt="">
+    <img class="mx-5"style="width:32%; box-shadow: 10px 8px 8px #484848; height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco1}}" alt="">
   {% endfor %}
   </div>
   <!-- 2번째 장르 영화 추천-->
@@ -82,7 +92,7 @@
   <hr style="border: 1px solid black">
   <div style="margin-left:10%; margin-right:10%; display: flex; justify-content: center;">
   {% for raco2 in raco_image2  %}
-    <img class="mx-5"style="width:32%; height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco2}}" alt="">
+    <img class="mx-5"style="width:32; box-shadow: 10px 8px 8px #484848; height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco2}}" alt="">
   {% endfor %}
   </div>
   <!-- 3번째 장르 영화 추천-->
@@ -91,7 +101,7 @@
   <hr style="border: 1px solid black">
   <div style="margin-left:10%; margin-right:10%; display: flex; justify-content: center;">
   {% for raco3 in raco_image3  %}
-    <img class="mx-5"style="width:32%; height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco3}}" alt="">
+    <img class="mx-5"style="width:32%; box-shadow: 10px 8px 8px #484848;;height:50%;"src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2{{raco3}}" alt="">
   {% endfor %}
   </div>
   <br>
@@ -100,7 +110,7 @@
 </div>
 
 </div>
-  
+{% endblock content %}
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </html>
