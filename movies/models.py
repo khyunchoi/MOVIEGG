@@ -25,6 +25,8 @@ class Actor(models.Model):
     movie_code = models.ManyToManyField(Movie, related_name='movie_actor')
     name = models.CharField(max_length=50)
 
+    class Meta:
+        unique_together = (('name'),)
 
 class BoxofficeMovie(models.Model):
     title = models.CharField(max_length=100)

@@ -87,7 +87,7 @@ def load(request):
     return render(request, 'movies/load.html', context)
 
 def movieupdate(request):
-    for i in range(1,20):
+    for i in range(1,50):
         url = f'https://api.themoviedb.org/3/movie/popular?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR&page={i}'
         res = requests.get(url)
         text = res.text
@@ -131,7 +131,9 @@ def movieupdate(request):
 
                 showtime = runtime_text['runtime']
                 overview = runtime_text['overview']
-                
+                if not "release_date" in rec:
+                    rec['release_date'] = '9999-09-09'
+
                 context ={
                     'movie_code' : rec['id'],
                     'title' : rec['title'],
@@ -153,7 +155,7 @@ def movieupdate(request):
                                 'name' : cast[i]['name'] 
                             }
                             actor = Actor.objects.get_or_create(name=cast[i]['name'])
-                            actor = Actor.objects.get(name=cast[i]['name'])
+                            actor = Actor.objects.filter(name=cast[i]['name'])[0]
                             movie = Movie.objects.get(movie_code=rec['id'])
                             movie.movie_actor.add(actor)
                             # actor.movie_code.add(movie) 해도 똑같이 만들어짐
@@ -272,17 +274,16 @@ def lol_result(request, i):
     recogenre = []
     reco_imglist = []
     reco_imgfinal = {}
-    plz = Movie.objects.filter(genre=19)
-    print(plz)
+    movie_extra =[]
+
     for genre in character_genre:
         recogenre.append(genre)
-        print(genre)
+
         movies = Movie.objects.filter(genre=genre).order_by('-vote_average')
         
         # genre_recommend = Movie.objects.filter(genre=genre).order_by('-vote_average')[0:3]
         if not genre.genre_num == 16:
             genre_recommend = Movie.objects.filter(genre=genre).order_by('-vote_average').filter(~Q(genre=3))[0:3]
-            print(genre_recommend)
             if len(genre_recommend) < 3:
                 genre_empty = (Movie.objects.filter(genre=genre).order_by('-vote_average').filter(genre=3)[0:3-len(genre_recommend)])
                 for reco in genre_empty:
@@ -292,12 +293,13 @@ def lol_result(request, i):
         if max < movies[0].vote_average:
             max = movies[0].vote_average
             movie_one = movies[0]
-        print(genre_recommend)
+        movie_extra.append(movies[0])
+    
         
         for reco in genre_recommend:
             recolist.append(reco.movie_code)
-        print(recolist)
-            
+
+    print(movie_extra)
     # 추천 영화를 가져오는 접근!!
     for reco in recolist:
         recommend_url = f'https://api.themoviedb.org/3/movie/{reco}?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR'
@@ -324,6 +326,21 @@ def lol_result(request, i):
     movie_overviews_text = movie_overviews.json()
 
     movie_overview = movie_overviews_text['overview']
+    if not movie_overview:
+        flag = True
+        while flag:
+            for movie in movie_extra:
+                overview_url = f'https://api.themoviedb.org/3/movie/{movie.movie_code}?api_key=f66a306bb52bff7bbc064b3b796172b2&language=ko-KR'
+                movie_overviews = requests.get(overview_url)
+                movie_overviews_text = movie_overviews.json()
+                movie_overview = movie_overviews_text['overview']
+                if movie_overview:
+                    flag = False
+                    movie_one = movie
+                    break
+
+    # movie_overview = movie_overviews_text['overview']
+    # movie_overview = '해당 영화는 줄거리를 제공하지 않습니다.'
 
 
     url = f'https://www.leagueoflegends.com/ko-kr/champions/{character.eng_name}'

@@ -7,6 +7,7 @@
   <title>Document</title>
 </head>
 <body>
+  <a> 총 {{ movies|length }} 개의 영화가 업데이트되었습니다.</a>
   {% for movie in movies %}
     {{ movie.title }}
     <br>
