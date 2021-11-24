@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
-
+{% load mathfilters %}
 {% block style %}
 <style>
-
 .big_img {
-  width: 100px;
-  height: 100px;
+  width: 45%;
+  height: 45%;
   border-radius: 70%;
   overflow: hidden;
 }
@@ -18,7 +17,7 @@
 }
 
 .one {
-  grid-column: 1 / 3;
+  grid-column: 1 / 2;
   grid-row: 1;
 }
 
@@ -33,22 +32,22 @@
 }
 
 .articles-content {
-  height: 1000px;
+  min-height: 800px;
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  margin: 20px 0;
 }
 
 .articles-content-box {
-  height: 700px;
-  width: 90%;
+  height: 70%;
+  width: 80%;
   background-color: white;
 }
 
 .articles-content-table {
   width: 100%;
-  height: 85%;
+  height: 70%;
 }
 
 .articles-table-center {
@@ -57,7 +56,15 @@
 
 tr {
   border-bottom: 1px solid #C5CBD0;
-  height: 60px;
+  height: 67.5px;
+}
+
+body{ 
+  -ms-overflow-style: none; 
+} 
+
+::-webkit-scrollbar { 
+  display: none; 
 }
 </style>
 {% endblock style %}
@@ -66,142 +73,119 @@ tr {
 
 <div class="wrapper">
   <div class="one">
-    <div>
+    <div class="d-flex justify-content-center mt-4">
       {% if user.profile_image %}
         <img src="{{ person.profile_image.url }}" alt="" class="big_img">
       {% else %}
-        <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" width="45%" height="45%" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
           <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
           <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
         </svg>
       {% endif %}
     </div>
     <br>
-    {{ request.user.username }}
-    LV . {{ request.user.exp }}
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
+    <div class="d-flex justify-content-center fw-bold fs-5">
+      LV . {{ request.user.exp|intdiv:100  }}
+    </div>
+    <div class="d-flex justify-content-center fw-bold fs-4">
+      {{ request.user.nickname }}
+    </div>
   </div>
 
   <div class="two">
     <div class="d-flex justify-content-center">
-      <h2>내가 쓴 글 모음</h2>
+      <h1>내가 쓴 글 모음</h1>
     </div>
     <div class="d-flex justify-content-evenly">
       <a class="btn mt-3 mb-1 mx-3 text-muted" href="{% url 'accounts:profile_review' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>리뷰게시판</strong></a>
       <a class="btn mt-3 mb-1 mx-3 text-black border-bottom border-4" href="{% url 'accounts:profile_freeboard' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>자유게시판</strong></a>
     </div>
-
-    <div class="articles-content">
-      <div class="articles-content-box">
-        <table class="articles-content-table border-collapse: collapse;">
-          <thead>
-            <tr>
-              <th class="articles-table-center" style="width:10%; padding: 15px 0;">
-                <span>번호</span>
-              </th>
-              <th class="articles-table-center" style="width:45%">
-                <span>제목</span>
-              </th>
-              <th class="articles-table-center" style="width:15%">
-                <span>등록일</span>
-              </th>
-              <th class="articles-table-center" style="width:10%">
-                <span>조회수</span>
-              </th>
-              <th class="articles-table-center" style="width:10%">
-                <span>추천수</span>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for freeboard in request.user.freeboard_set.all %}
-              <tr>
-                <td class="articles-table-center">
-                  <span>{{ freeboard.pk }}</span>
-                </td>
-                <td>
-                  <a style="text-decoration: none; color: #484848;" href="{% url 'articles:freeboard_detail' freeboard.pk %}">
-                    <div style="font-size: 20px;">
-                      {% if freeboard.title|length > 20 %}
-                        <span>{{ freeboard.title|slice:":20" }}...</span>
-                      {% else %}
-                        <span>{{ freeboard.title }}</span>
-                      {% endif %}
-                    </div>
-                  </a>
-                </td>
-                <td class="articles-table-center">
-                  <span>{{ freeboard.created_at.date.year }}-{{ freeboard.created_at.date.month }}-{{ freeboard.created_at.date.day }}</span>
-                </td>
-                <td class="articles-table-center">
-                  <span>{{ freeboard.hit }}</span>
-                </td>
-                <td class="articles-table-center">
-                  <span>{{ freeboard.like_users.count }}</span>
-                </td>
+    <div style="overflow-y:auto; overflow-x:hidden; width:100%; height:65%;">
+      <div class="articles-content">
+        <div class="articles-content-box">
+          <table style="border-top: 1px solid #C5CBD0;" class="articles-content-table border-collapse: collapse;">
+            <thead>
+              <tr style="height: 55px;">
+                <th class="articles-table-center" style="width:10%; padding: 15px 0;">
+                  <span>번호</span>
+                </th>
+                <th class="articles-table-center" style="width:50%">
+                  <span>제목</span>
+                </th>
+                <th class="articles-table-center" style="width:20%">
+                  <span>등록일</span>
+                </th>
+                <th class="articles-table-center" style="width:10%">
+                  <span>조회수</span>
+                </th>
+                <th class="articles-table-center" style="width:10%">
+                  <span>추천수</span>
+                </th>
               </tr>
-            {% endfor %}
-
-            {% if page_number == page_obj.paginator.num_pages %}
-              {% for _ in n %}
+            </thead>
+            <tbody>
+              {% for freeboard in request.user.freeboard_set.all %}
                 <tr>
+                  <td class="articles-table-center">
+                    <span>{{ freeboard.pk }}</span>
+                  </td>
+                  <td>
+                    <a style="text-decoration: none; color: #484848;" href="{% url 'articles:freeboard_detail' freeboard.pk %}">
+                      <div style="font-size: 20px; text-align: center;">
+                        {% if freeboard.title|length > 20 %}
+                          <span>{{ freeboard.title|slice:":20" }}...</span>
+                        {% else %}
+                          <span>{{ freeboard.title }}</span>
+                        {% endif %}
+                      </div>
+                    </a>
+                  </td>
+                  <td class="articles-table-center">
+                    <span>{{ freeboard.created_at.date.year }}-{{ freeboard.created_at.date.month }}-{{ freeboard.created_at.date.day }}</span>
+                  </td>
+                  <td class="articles-table-center">
+                    <span>{{ freeboard.hit }}</span>
+                  </td>
+                  <td class="articles-table-center">
+                    <span>{{ freeboard.like_users.count }}</span>
+                  </td>
                 </tr>
               {% endfor %}
-            {% endif %}
-          </tbody>
-        </table>
-
-        <div class="d-flex justify-content-between align-items-center" style="height: calc(700px - 85%); background-color: #F1F1F1;">
-          <div style="margin-left: 25px;"></div>
-          <nav aria-label="Page navigation example">
-            <ul class="pagination">
-              {% if page_obj.has_previous %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-              {% else %}
-                <li class="page-item disabled"><a class="page-link">Previous</a></li>
-              {% endif %}
-
-              {% for num in page_obj.paginator.page_range %}
-                {% if num == page_number %}
-                  <li class="page-item active"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                {% else %}
-                  <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
-                {% endif %}
-              {% endfor %}
-
-              {% if page_obj.has_next %}
-                <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a></li>
-              {% else %}
-                <li class="page-item disabled"><a class="page-link">Next</a></li>
-              {% endif %}
-            </ul>
-          </nav>
-          <div style="margin-right: 20px;">
-            <a class="btn" style="background-color: #4285F4; color: white;" href="{% url 'articles:freeboard_create' %}">글쓰기</a>
-          </div>
+            </tbody>
+          </table>
         </div>
       </div>
-    </div>  
+    </div>
   </div>
   
   <div class="three">
-    <h1>나에게 달린 최근 댓글 모음</h1>
-    {% for freeboard in request.user.freeboard_set.all %}
-      {% for comment in freeboard.freecomment_set.all %}
-        <div class="d-flex my-4">
-          {{ comment.user.nickname }} {{ comment.content }}
-        </div>
-      {% endfor %}
-    {% endfor %}
+    <div class="d-flex justify-content-center my-4">
+      <h1>나에게 달린 최근 댓글 모음</h1>
+    </div>
+    <div>
+      <div style="display: flex; flex-flow: column; align-items: center; border: 1px solid #C5CBD0; width: 80%; min-height: 49px; margin-top: 20px; margin-left: 70px">
+        {% for freeboard in request.user.freeboard_set.all %}
+          {% for comment in freeboard.freecomment_set.all %}
+            <div style="display: flex; flex-flow: column; width: 100%; height: 100%; border-top: 1px solid #C5CBD0;">
+              <div style="display: flex; justify-content: space-between; align-items: center; width: 100%; height: 100%;">
+                <div style="display: flex;">
+                  <div style="color: #5B835F; margin: 0 10px;">
+                    {{ comment.user.nickname }}
+                  </div>
+                  <div style="font-size: 12px; display: flex; align-items: center; margin-right: 10px;">
+                    LV.{{ comment.user.exp|intdiv:100  }}            
+                  </div>
+                </div>
+              </div>
+              <div style="margin: 11px;">
+                {{ comment.content }}
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+    </div>
   </div>
+
 </div>
 {% endblock content %}

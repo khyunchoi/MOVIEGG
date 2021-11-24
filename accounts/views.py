@@ -84,13 +84,6 @@ def password_change(request):
     return render(request, 'accounts/password_change.html', context)
 
 
-def practice(request):
-    context = {
-
-    }
-    return render(request, 'accounts/practice.html', context)
-
-
 @login_required
 def profile_review(request, user_pk):
     person = get_object_or_404(get_user_model(), pk=user_pk)
@@ -109,4 +102,3 @@ def profile_freeboard(request, user_pk):
         'person': person,
     }
     return render(request, 'accounts/profile_freeboard.html', context)
-
