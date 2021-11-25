@@ -102,3 +102,4 @@ def profile_freeboard(request, user_pk):
         'person': person,
     }
     return render(request, 'accounts/profile_freeboard.html', context)
+
