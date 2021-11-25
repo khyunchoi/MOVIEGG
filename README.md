@@ -23,7 +23,7 @@
   <tr>
     <td align="center"><a href="https://github.com/DongKyunJung"><img src="https://avatars.githubusercontent.com/u/87457171?v=4" width="100px;" alt=""/><br /><sub><b>DONGKYUN</b></sub></a><br /></td>
     <td align="center"><a href="https://github.com/khyunchoi"><img src="https://avatars.githubusercontent.com/u/77478732?v=4" width="100px;" alt=""/><br /><sub><b>GANGHYEON</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/HeoBeom"><img src="https://avatars.githubusercontent.com/u/87457152?v=4" width="100px;" alt=""/><br /><sub><b>HEOBEOM</b></sub></a><br /></td>
+    <td align="center"><a href="https://github.com/HeoBeom"><img src="https://avatars.githubusercontent.com/u/87457226?v=4" width="100px;" alt=""/><br /><sub><b>HEOBEOM</b></sub></a><br /></td>
   </tr>
 </table>  
 
