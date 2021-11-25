@@ -6,6 +6,10 @@ html, body {
   height: 100%;  
 }
 
+.nav-index {
+  background-color: #4285F4;
+}
+
 .big_img {
   width: 40%;
   height: 40%;
@@ -83,7 +87,7 @@ body{
     <div style="overflow-y:auto; overflow-x:hidden; width:100%; height:100%; justify-content: center;">
       {% for review in request.user.review_set.all %}
         <a href="{% url 'articles:review_detail' review.pk %}">
-          <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.movie.poster_path }}" alt="포스터" style="height: 60%; width: 25%;" class='d-flex float-start mx-5 my-3'>
+          <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.movie.poster_path }}" alt="포스터" style="height: 60%; width: 25%; box-shadow: 10px 8px 8px #484848" class='d-flex float-start mx-5 my-3'>
         </a>
       {% endfor %}
     </div>
