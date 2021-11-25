@@ -109,18 +109,24 @@
         Best Review
       </div>
       <div style="height: calc(100% - 32px);">
-        {% for review in top_reviews %}
-          <div class="index-review-content" style="padding: 5px;">
-            <a href="{% url 'articles:review_detail' review.1.pk %}">
-              <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.1.movie.poster_path }}" alt="포스터" style="height: 100%;">
-            </a>
-            <div style="margin-left: 10px; display: flex; align-items: center;">
-              <a class="index-review-title" href="{% url 'articles:review_detail' review.1.pk %}">
-                {{ review.1.title }}
+        {% if top_reviews %}
+          {% for review in top_reviews %}
+            <div class="index-review-content" style="padding: 5px;">
+              <a href="{% url 'articles:review_detail' review.1.pk %}">
+                <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.1.movie.poster_path }}" alt="포스터" style="height: 100%;">
               </a>
+              <div style="margin-left: 10px; display: flex; align-items: center;">
+                <a class="index-review-title" href="{% url 'articles:review_detail' review.1.pk %}">
+                  {{ review.1.title }}
+                </a>
+              </div>
             </div>
+          {% endfor %}
+        {% else %}
+          <div style="display: flex; justify-content: center; align-items: center; height: 100%; font-size: 40px; color: #D0C7C7;">
+            아직 리뷰가 없습니다
           </div>
-        {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>
