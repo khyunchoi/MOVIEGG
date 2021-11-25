@@ -54,7 +54,7 @@ class CustomUserCreationForm(UserCreationForm):
     def __init__(self, *args, **kwargs):
         super(CustomUserCreationForm, self).__init__(*args, **kwargs)
 
-        for fieldname in ['username', 'password1', 'password2']:
+        for fieldname in ['username', 'email', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
 
         self.fields['username'].label = '아이디'
@@ -70,11 +70,11 @@ class CustomUserCreationForm(UserCreationForm):
             'id': 'floatingNickname',
             'placeholder': 'Nickname',
         })
-        self.fields['first_name'].label = '이름'
-        self.fields['first_name'].widget.attrs.update({
+        self.fields['email'].label = '이메일'
+        self.fields['email'].widget.attrs.update({
             'class': 'form-control',
-            'id': 'floatingInput',
-            'placeholder': 'Firstname',
+            'id': 'floatingEmail',
+            'placeholder': 'Email',
         })
         self.fields['password1'].label = '비밀번호'
         self.fields['password1'].widget.attrs.update({
@@ -91,7 +91,7 @@ class CustomUserCreationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'nickname', 'first_name', 'password1', 'password2']
+        fields = ['username', 'nickname', 'email', 'password1', 'password2']
 
 
 class CustomAuthenticationForm(AuthenticationForm):
@@ -110,3 +110,4 @@ class CustomAuthenticationForm(AuthenticationForm):
             'id': 'floatingPassword',
             'placeholder': 'Password',
         })
+

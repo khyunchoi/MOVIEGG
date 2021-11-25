@@ -2,10 +2,13 @@
 {% load mathfilters %}
 {% block style %}
 <style>
+html, body {
+  height: 100%;  
+}
 
 .big_img {
-  width: 45%;
-  height: 45%;
+  width: 40%;
+  height: 40%;
   border-radius: 70%;
   overflow: hidden;
 }
@@ -13,13 +16,15 @@
 .wrapper {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
   grid-auto-rows: minmax(100px, auto);
+  height: 100%;
 }
 
 .one {
   grid-column: 1 / 2;
   grid-row: 1;
+  border-bottom: 1px solid #C5CBD0;
+  border-right: 1px solid #C5CBD0;
 }
 
 .two {
@@ -30,6 +35,7 @@
 .three {
   grid-column: 1;
   grid-row: 2 / 5;
+  border-right: 1px solid #C5CBD0;
 }
 
 body{ 
@@ -70,14 +76,14 @@ body{
     <div class="d-flex justify-content-center">
       <h1>내가 쓴 글 모음</h1>
     </div>
-    <div class="d-flex justify-content-evenly">
-      <a class="btn mt-3 mb-1 mx-3 text-black border-bottom border-4" href="{% url 'accounts:profile_review' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>리뷰게시판</strong></a>
-      <a class="btn mt-3 mb-1 mx-3 text-muted" href="{% url 'accounts:profile_freeboard' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>자유게시판</strong></a>
+    <div class="d-flex justify-content-evenly" style="border-top: 1px solid #C5CBD0; border-bottom: 1px solid #C5CBD0;">
+      <a class="btn mt-3 mx-3 text-black" href="{% url 'accounts:profile_review' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px; border-bottom: 3px solid #484848;"><strong>리뷰게시판</strong></a>
+      <a class="btn mt-3 mx-3 text-muted" href="{% url 'accounts:profile_freeboard' request.user.pk %}" role="button" style="background-color: #F3F5F7; width: 140px; height: 45px;"><strong>자유게시판</strong></a>
     </div>
-    <div style="overflow-y:auto; overflow-x:hidden; width:100%; height:65%;">
+    <div style="overflow-y:auto; overflow-x:hidden; width:100%; height:100%; justify-content: center;">
       {% for review in request.user.review_set.all %}
         <a href="{% url 'articles:review_detail' review.pk %}">
-          <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.movie.poster_path }}" alt="포스터" style="height: 75%;" class='d-flex float-start mx-4 my-3'>
+          <img src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{ review.movie.poster_path }}" alt="포스터" style="height: 60%; width: 25%;" class='d-flex float-start mx-5 my-3'>
         </a>
       {% endfor %}
     </div>

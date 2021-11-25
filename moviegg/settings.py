@@ -160,3 +160,18 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 SITE_ID = 1
+
+# 비밀번호 찾기
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+EMAIL_HOST = 'smtp.gmail.com'
+
+EMAIL_PORT = '587'
+
+EMAIL_HOST_USER = 'ssafy211125@gmail.com'
+
+EMAIL_HOST_PASSWORD = '!as123789'
+
+EMAIL_USE_TLS = True
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER

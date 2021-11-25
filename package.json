@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "jquery.rateit": "^1.1.5"
+    "jquery.rateit": "^1.1.5",
+    "package.json": "^2.0.1"
   }
 }

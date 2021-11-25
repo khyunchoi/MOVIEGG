@@ -17,7 +17,9 @@
   <a class="btn mt-3 mb-1 mx-3 text-black border border-2" href="{% url 'articles:index' %}" role="button" style="background-color: #FFFFFF; width: 35%; height: 45px;"><strong>뒤로가기</strong></a>
   <button type="submit" class="btn mt-3 mb-1 text-white" style="background-color: #1EA1F7; width: 35%; height: 45px;"><strong>로그인</strong></button>
 </form>
-<br>
+<div class="my-1" style="text-align: right; margin-right: 8%;">
+  <a class="text-decoration-none" href="{% url 'account_reset_password' %}" style="color: #1EA1F7;">비밀번호를 잊으셨나요?</a>
+</div>
 <br>
 <br>
 {% load static %}
