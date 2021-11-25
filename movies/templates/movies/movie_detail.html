@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load mathfilters %}
+{% load humanize %}
 
 {% block style %}
 <style>
@@ -24,6 +25,10 @@
     width: 90%;
     margin-top: 10px;
   }
+
+  .movie-detail-review-content:hover {
+    background-color: #F1F1F1;
+  }
 </style>
 {% endblock style %}
 
@@ -33,7 +38,7 @@
     <div style="margin-right: 50px;">
       <img style="border-radius: 15px;" src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2/{{movie.poster_path}}" alt="">
     </div>
-    <div style="border: 2px solid #D0C7C7; border-radius: 15px; padding: 10px; margin-left: 50px; display: flex; flex-flow: column; color: #484848;">
+    <div style="border: 2px solid #D0C7C7; border-radius: 15px; padding: 10px; margin-left: 50px; display: flex; flex-flow: column; color: #484848; background-color: #F1F1F1;">
       <div style="font-size: 32px; font-weight: bold; margin: 5px 0;">
         {{ movie.title }}
       </div>
@@ -70,6 +75,9 @@
     <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #D0C7C7; padding-bottom: 10px;">
       <div style="font-size:24px; font-weight: bold; color: #484848;">
         관련 리뷰
+        <span style="font-size: 16px;">
+          총 {{ movie.review_set.all.count }}개
+        </span>
       </div>
       {% if request.user.exp >= 500 %}
         <a class="btn" href="{% url 'articles:review_create' movie.pk %}" style="background-color: #4285F4; text-decoration: none; color: white; padding: 3px 6px;">
@@ -81,16 +89,21 @@
         </a>
       {% endif %}
     </div>
-    <div style="border: 2px solid #D0C7C7; border-radius: 5px; margin: 20px 0; min-height: 200px;">
+    <div style="border: 2px solid #D0C7C7; margin: 20px 0; min-height: 200px;">
       {% for review in movie.review_set.all %}
-        <div style="border: 1px solid #D0C7C7; border-radius: 5px; margin: 10px; padding: 3px; display: flex;">
-          <div style="color: #5B835F; margin: 0 10px;">
-            {{ review.user.nickname|slice:":4" }}
+        <div class="movie-detail-review-content" style="display: flex; flex-flow: column; border-bottom: 1px solid #D0C7C7; padding: 3px; display: flex;">
+          <div style="display: flex;">
+            <div style="color: #5B835F; margin: 0 10px;">
+              {{ review.user.nickname|slice:":4" }}
+            </div>
+            <div style="font-size: 12px; display: flex; align-items: end; margin-right: 20px;">
+              LV.{{ review.user.exp|intdiv:100 }}            
+            </div>
+            <div style="font-size: 12px; display: flex; align-items: center; color: #484848;">
+              {{ review.created_at | naturaltime }}
+            </div>
           </div>
-          <div style="font-size: 12px; display: flex; align-items: end; margin-right: 20px;">
-            LV.{{ review.user.exp|intdiv:100 }}            
-          </div>
-          <a href="{% url 'articles:review_detail' review.pk %}" style="text-decoration: none; color: #DB2F2F;">
+          <a href="{% url 'articles:review_detail' review.pk %}" style="text-decoration: none; color: #DB2F2F; margin: 7px;">
             {{ review.title|slice:":35" }}
           </a>
         </div>

@@ -10,4 +10,4 @@ http://127.0.0.1:8000/movies/lolupdate/
 
 python manage.py loaddata question.json
 
-python  manage.py character_genre.json
+python manage.py loaddata character_genre.json
