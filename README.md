@@ -14,26 +14,13 @@
 - [캐릭터 고르기 알고리즘](#캐릭터-고르기-알고리즘)
 - [마무리 소감](#마무리-소감)
 
-<br>
+
 
 ## 프로젝트 소개🎞
 
 >Welcome to the MOVIE GG <br>
 >MOVIE GG는 다양한 방법으로 영화 추천을 제공합니다. 당신만의 League of Legends 캐릭터를 고르고, 캐릭터에 어울리는 영화 추천을 받아보세요.
 
-<br>
-
-## Member👬
-
-<table>
-  <tr>
-    <td align="center"><a href="https://github.com/DongKyunJung"><img src="https://avatars.githubusercontent.com/u/87457171?v=4" width="100px;" alt=""/><br /><sub><b>DONGKYUN</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/khyunchoi"><img src="https://avatars.githubusercontent.com/u/77478732?v=4" width="100px;" alt=""/><br /><sub><b>GANGHYEON</b></sub></a><br /></td>
-    <td align="center"><a href="https://github.com/HeoBeom"><img src="https://avatars.githubusercontent.com/u/87457226?v=4" width="100px;" alt=""/><br /><sub><b>HEOBEOM</b></sub></a><br /></td>
-  </tr>
-</table>  
-
-<br>
 
 ## 역할🧙‍♂️
 
@@ -41,7 +28,7 @@
 - **최강현** (기술 고문) : 메인페이지 설계 & 게시판 기능 구현
 - **허범** (PM) : 소셜 로그인 & 사용자 인증 기능 구현
 
-<br>
+
 
 ## 개발 가이드라인💡
 
@@ -56,7 +43,7 @@
 
 ![image-20211125115733717](README.assets/image-20211125115733717.png)
 
-<br>
+
 
 ## 스타일 가이드라인🎨
 
@@ -66,13 +53,13 @@
 
 ![image-20211125115902511](README.assets/image-20211125115902511.png)
 
-<br>
+
 
 ## Tech Stack💻
 
 ![image-20211125133431987](README.assets/image-20211125133431987.png)
 
-<br>
+
 
 ## 주요 기능 목록💪
 
@@ -83,7 +70,7 @@
 - 영화진흥위원회 API, TMDB API, 크롤링 등을 이용한 영화 추천 기능
 - 캐릭터 고르기 테스트를 통한 영화 추천 기능
 
-<br>
+
 
 ## ERD & UI✒
 
@@ -99,7 +86,7 @@
 
 ![UI3](README.assets/UI3.png)
 
-<br>
+
 
 ## 캐릭터 고르기 알고리즘📃
 
@@ -115,11 +102,7 @@
 
 ![image-20211125141010035](README.assets/image-20211125141010035.png)
 
-- 질문 정리
 
-<img src="README.assets/image-20211125140910045.png" alt="image-20211125140910045" style="zoom: 80%;" />
-
-<br>
 
 ## 마무리 소감🏆
 
